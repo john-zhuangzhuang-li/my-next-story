@@ -9,7 +9,7 @@ const NavBar = () => {
       templateColumns="[left-start] minmax(0, 1fr) [left-end logo-start] minmax(min-content, 15rem) [logo-end right-start] minmax(0, 1fr) [right-end]"
       py={3}
       columnGap={3}
-      zIndex={2}
+      zIndex={9}
     >
       <Flex gridColumn="left" justifyContent="flex-end" alignItems="center">
         <Text noOfLines={1}>This is left</Text>

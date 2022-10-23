@@ -39,7 +39,8 @@ const SkillsSection = () => {
       </Heading>
       <SkillList
         initial="hidden"
-        animate="visible"
+        whileInView="visible"
+        // whileHover="hover"
         variants={list}
         listStyleType="none"
         display="flex"
