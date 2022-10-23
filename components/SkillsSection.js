@@ -1,4 +1,29 @@
-import { Flex, Heading, Text } from "@chakra-ui/react";
+import { Flex, Heading, chakra, shouldForwardProp } from "@chakra-ui/react";
+import { motion, isValidMotionProp } from "framer-motion";
+
+import SkillCard from "./SkillCard";
+import { skillIconData } from "../store/dummy";
+
+const SkillList = chakra(motion.ul, {
+  shouldForwardProp: (prop) =>
+    isValidMotionProp(prop) || shouldForwardProp(prop),
+});
+
+const list = {
+  visible: {
+    opacity: 1,
+    transition: {
+      when: "beforeChildren",
+      staggerChildren: 0.1,
+    },
+  },
+  hidden: {
+    opacity: 0,
+    transition: {
+      when: "afterChildren",
+    },
+  },
+};
 
 const SkillsSection = () => {
   return (
@@ -12,29 +37,20 @@ const SkillsSection = () => {
       <Heading as="h3" size="md">
         SKILLS
       </Heading>
-      <Flex
-        as="ul"
+      <SkillList
+        initial="hidden"
+        animate="visible"
+        variants={list}
         listStyleType="none"
-        gap={3}
+        display="flex"
+        gap={6}
         justifyContent="center"
         flexWrap="wrap"
       >
-        <Flex
-          as="li"
-          w="10rem"
-          h="10rem"
-          flexDir="column"
-          rowGap={3}
-          justifyContent="center"
-          alignItems="center"
-          cursor="default"
-          borderRadius="lg"
-          bg="gray.200"
-        >
-          <Flex bg="yellow.500" w="5rem" h="5rem"></Flex>
-          <Text>Something</Text>
-        </Flex>
-      </Flex>
+        {skillIconData.map(({ id, src, title }) => (
+          <SkillCard key={id} iconSrc={src} title={title} />
+        ))}
+      </SkillList>
     </Flex>
   );
 };
