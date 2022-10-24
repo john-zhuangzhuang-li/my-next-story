@@ -34,7 +34,7 @@ const SkillCard = ({ iconSrc: src, title }) => {
         // transform: "translateY(10px)",
         // bg: "pink.500",
         bgGradient: "linear(to-l, #7928CA, #FF0080)",
-        borderRadius: "lg",
+        borderRadius: "9xl",
         filter: "blur(18px)",
         zIndex: "-1",
         opacity: "0",
@@ -56,6 +56,7 @@ const SkillCard = ({ iconSrc: src, title }) => {
         src={src}
         w={{ base: "4rem", sm: "5rem" }}
         h={{ base: "4rem", sm: "5rem" }}
+        alt="Skill icon"
       />
       <Text>{title}</Text>
     </SkillItem>

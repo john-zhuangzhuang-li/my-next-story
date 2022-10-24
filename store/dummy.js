@@ -1,3 +1,10 @@
+export const certData = [
+  { id: "certImg01", title: "JavaScript" },
+  { id: "certImg02", title: "React" },
+  { id: "certImg03", title: "Advanced CSS" },
+  { id: "certImg04", title: "Web Development" },
+];
+
 export const skillIconData = [
   {
     id: "icon-html-5",
