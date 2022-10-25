@@ -53,6 +53,7 @@ const CertificatesSection = () => {
         display="grid"
         gridTemplateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}
         gap={6}
+        listStyleType="none"
       >
         {certData.map(({ id, title }) => (
           <CertificateCard key={id} id={id} title={title} />

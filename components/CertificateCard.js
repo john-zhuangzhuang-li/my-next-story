@@ -58,6 +58,7 @@ const CertificateCard = ({ id, title }) => {
     <Flex
       //   display="flex"
       //   variants={item}
+      as="li"
       flexDir="column"
       justifyContent="center"
       alignItems="center"
