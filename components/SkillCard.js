@@ -25,7 +25,7 @@ const SkillCard = ({ iconSrc: src, title }) => {
       alignItems="center"
       cursor="default"
       borderRadius="lg"
-      bg="gray.700"
+      // bg="gray.700"
       position="relative"
       _before={{
         content: '""',
@@ -45,7 +45,9 @@ const SkillCard = ({ iconSrc: src, title }) => {
         position: "absolute",
         inset: "0",
         zIndex: "-1",
-        bg: "gray.700",
+        // bg: "gray.700",
+        bg: "#fff",
+        border: "1px",
         borderRadius: "lg",
       }}
       sx={{

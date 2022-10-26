@@ -64,7 +64,8 @@ const CertificateCard = ({ id, title }) => {
       alignItems="center"
       rowGap={6}
       p={9}
-      m={6}
+      mx={{ base: 0, sm: 6 }}
+      my={{ base: 3, sm: 6 }}
       bg="#fff"
       //   bgGradient="linear(#fff, #333) padding-box"
       //   bg="linear-gradient(#fff, #fff) padding-box,
@@ -128,7 +129,7 @@ const CertificateCard = ({ id, title }) => {
         <Circle size={12} bgGradient="linear(to-l, #7928CA, #FF0080)" ml={3}>
           <Icon as={certIconList[id]} w={6} h={6} color="#fff" />
         </Circle>
-        <Heading size="lg" ml={3}>
+        <Heading size="lg" ml={3} noOfLines={1}>
           {title}
         </Heading>
       </CertTitle>

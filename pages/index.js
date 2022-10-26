@@ -11,13 +11,15 @@ const Home = () => {
     <Layout>
       <Header />
       <PortfolioSection />
-      <Box bg="green.100" minH="600px" gridColumn="center">
+      {/* <Box bg="green.100" minH="600px" gridColumn="center">
         BIG BOX
-      </Box>
+      </Box> */}
+      <Box minH={"5rem"} gridColumn="center"></Box>
       <SkillsSection />
-      <Box bg="green.100" minH="600px" gridColumn="center">
+      {/* <Box bg="green.100" minH="600px" gridColumn="center">
         BIG BOX
-      </Box>
+      </Box> */}
+      <Box minH={"5rem"} gridColumn="center"></Box>
       <CertificatesSection />
     </Layout>
   );
