@@ -27,13 +27,7 @@ const list = {
 
 const SkillsSection = () => {
   return (
-    <Flex
-      as="section"
-      gridColumn="center"
-      minH="30rem"
-      flexDir="column"
-      rowGap={3}
-    >
+    <Flex as="section" gridColumn="center" flexDir="column" rowGap={3} my={12}>
       <Heading as="h3" size="md">
         SKILLS
       </Heading>

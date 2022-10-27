@@ -15,8 +15,8 @@ import certImg02 from "../public/cert-imgs/cert-02.webp";
 import certImg03 from "../public/cert-imgs/cert-03.webp";
 import certImg04 from "../public/cert-imgs/cert-04.webp";
 
-import { DiJavascript1, DiCssTricks } from "react-icons/di";
-import { FaReact } from "react-icons/fa";
+import { DiJavascript1, DiCssTricks, DiCss3 } from "react-icons/di";
+import { FaReact, FaCode } from "react-icons/fa";
 import { RiCodeSSlashFill } from "react-icons/ri";
 
 const certImgList = {
@@ -29,8 +29,8 @@ const certImgList = {
 const certIconList = {
   certImg01: DiJavascript1,
   certImg02: FaReact,
-  certImg03: DiCssTricks,
-  certImg04: RiCodeSSlashFill,
+  certImg03: DiCss3,
+  certImg04: FaCode,
 };
 
 // const CertItem = chakra(motion.li, {
@@ -74,6 +74,7 @@ const CertificateCard = ({ id, title }) => {
       //   borderColor="gray.300"
       position="relative"
       borderRadius="2xl"
+      // boxShadow="base"
       _before={{
         content: '""',
         position: "absolute",
@@ -90,11 +91,12 @@ const CertificateCard = ({ id, title }) => {
       _after={{
         content: '""',
         position: "absolute",
-        inset: "-5px",
+        inset: "-1px",
         //   filter: "blur(10px)",
         zIndex: "-1",
-        opacity: "0.1",
-        bg: "gray.500",
+        opacity: "0.4",
+        bg: "gray.400",
+        boxShadow: "base",
         // bgGradient: "linear(to-l, #7928CA, #FF0080)",
         borderRadius: "2xl",
         transition: "all 0.2s",
@@ -112,7 +114,7 @@ const CertificateCard = ({ id, title }) => {
       sx={{
         "&:hover::before": { opacity: "0.75" },
         "&:hover::after": {
-          opacity: "0.55",
+          opacity: "0.75",
           bgGradient: "linear(to-l, #7928CA, #FF0080)",
         },
       }}

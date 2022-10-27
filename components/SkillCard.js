@@ -48,6 +48,8 @@ const SkillCard = ({ iconSrc: src, title }) => {
         // bg: "gray.700",
         bg: "#fff",
         border: "1px",
+        borderColor: "gray.200",
+        boxShadow: "base",
         borderRadius: "lg",
       }}
       sx={{

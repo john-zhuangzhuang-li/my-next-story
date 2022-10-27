@@ -11,11 +11,12 @@ import {
   Stack,
   Icon,
   Circle,
+  Link,
 } from "@chakra-ui/react";
 import { motion, isValidMotionProp } from "framer-motion";
 
 import NextImage from "next/image";
-import testImg from "../public/port-imgs/test-02.webp";
+import testImg from "../../public/port-imgs/test-02.webp";
 
 import {
   RiCodeSSlashFill,
@@ -24,28 +25,29 @@ import {
   RiUser5Line,
 } from "react-icons/ri";
 import { SiGithub } from "react-icons/si";
-import { FaCoffee, FaUser } from "react-icons/fa";
+import { FaCoffee, FaUser, FaCode } from "react-icons/fa";
 import { BiUserCheck, BiImage, BiImageAdd } from "react-icons/bi";
+import { MdImage } from "react-icons/md";
 
 // CURRENT SCR SHOT SIZE: 1800 X 1200
 
 // CONSIDER STILL INCLUDE CHIPS IN - TEXT ONLY?
 
-const PortfolioCard = () => {
+const ItemCupBottomless = () => {
   return (
     <Flex
       as="li"
-      gap={9}
-      sx={{
-        flexDirection: { base: "column", lg: "row" },
-        "&:nth-child(even)": {
-          flexDirection: { base: "column", lg: "row-reverse" },
-        },
-      }}
+      gap={16}
+      // sx={{
+      //   flexDirection: { base: "column", lg: "row" },
+      //   "&:nth-child(even)": {
+      //     flexDirection: { base: "column", lg: "row-reverse" },
+      //   },
+      // }}
     >
       {/* IMAGE AREA */}
       <Flex
-        width={{ base: "auto", lg: "60%" }}
+        width={{ base: "auto", lg: "55%" }}
         bg="teal.300"
         justifyContent="center"
         alignItems="center"
@@ -59,34 +61,32 @@ const PortfolioCard = () => {
       </Flex>
       {/* TITLE AREA */}
       <Flex flex="1" flexDir="column" rowGap={8} justify="center">
-        <Stack direction="column" rowGap={3}>
+        <Stack direction="column" rowGap={2}>
           <Heading size="2xl">Cup Bottomless</Heading>
-          <Text fontSize="lg">Online photo gallery with user upload</Text>
+          <Text fontSize="xl">Photo gallery of stylish coffee makers</Text>
         </Stack>
 
         {/* LIST COMPONENT */}
         <Stack direction="column" rowGap={3}>
           <Stack direction="row" columnGap={3} align="center">
-            <Circle size={8} bg="teal.400">
-              <Icon as={FaCoffee} color="#fff" />
+            <Circle size={10} bg="teal.400">
+              <Icon as={FaCoffee} color="#fff" w={5} h={5} />
             </Circle>
-            <Text fontSize="lg">
-              A photo collection of stylish coffee makers
+            <Text fontSize="xl">Responsive design with color modes</Text>
+          </Stack>
+          <Stack direction="row" columnGap={3} align="center">
+            <Circle size={10} bg="teal.400">
+              <Icon as={FaUser} color="#fff" w={5} h={5} />
+            </Circle>
+            <Text fontSize="xl">
+              User authentication and upload feature with image optimization
             </Text>
           </Stack>
           <Stack direction="row" columnGap={3} align="center">
-            <Circle size={8} bg="teal.400">
-              <Icon as={FaUser} color="#fff" />
+            <Circle size={10} bg="teal.400">
+              <Icon as={MdImage} color="#fff" w={5} h={5} />
             </Circle>
-            <Text fontSize="lg">
-              User authentication and upload with image optimization
-            </Text>
-          </Stack>
-          <Stack direction="row" columnGap={3} align="center">
-            <Circle size={8} bg="teal.400">
-              <Icon as={BiImage} color="#fff" />
-            </Circle>
-            <Text fontSize="lg">
+            <Text fontSize="xl">
               Initial page loaded by static site generator, and load more
               content as you browse
             </Text>
@@ -95,40 +95,47 @@ const PortfolioCard = () => {
             <Circle size={8} bg="teal.400">
               <Icon as={BiImageAdd} color="#fff" />
             </Circle>
-            <Text fontSize="lg">Load more content as you browse</Text>
+            <Text fontSize="xl">Load more content as you browse</Text>
           </Stack> */}
           <Stack direction="row" columnGap={3} align="center">
-            <Circle size={8} bg="teal.400">
-              <Icon as={RiCodeSSlashFill} color="#fff" />
+            <Circle size={10} bg="teal.400">
+              <Icon as={FaCode} color="#fff" w={5} h={5} />
             </Circle>
-            <Text fontSize="lg">
-              Built with Next.js, Typescript, Chakra UI, and Firebase
+            <Text fontSize="xl">
+              Built with Next.js, TypeScript, Chakra UI, and Firebase
             </Text>
           </Stack>
         </Stack>
 
         {/* ACTION AREA */}
         <Stack direction="row" spacing={3} align="center">
-          <Button
-            rightIcon={<Icon as={RiExternalLinkLine} />}
-            colorScheme="teal"
-            variant="solid"
-            textTransform="uppercase"
+          <Link href="https://coffee-machines.vercel.app/" isExternal>
+            <Button
+              rightIcon={<Icon as={RiExternalLinkLine} />}
+              colorScheme="teal"
+              variant="solid"
+              textTransform="uppercase"
+            >
+              demo
+            </Button>
+          </Link>
+          <Link
+            href="https://github.com/john-zhuangzhuang-li/coffee-machines"
+            isExternal
           >
-            demo
-          </Button>
-          <Button
-            rightIcon={<Icon as={SiGithub} />}
-            colorScheme="teal"
-            variant="outline"
-            textTransform="uppercase"
-          >
-            code
-          </Button>
+            <Button
+              rightIcon={<Icon as={SiGithub} />}
+              colorScheme="teal"
+              variant="outline"
+              textTransform="uppercase"
+            >
+              code
+            </Button>
+          </Link>
         </Stack>
       </Flex>
     </Flex>
   );
 };
 
-export default PortfolioCard;
+export default ItemCupBottomless;

@@ -40,6 +40,7 @@ const CertificatesSection = () => {
       minH="30rem"
       flexDir="column"
       rowGap={3}
+      my={12}
       //   bgGradient="linear(to-r, #fff, gray.100)"
     >
       <Heading as="h3" size="md">
