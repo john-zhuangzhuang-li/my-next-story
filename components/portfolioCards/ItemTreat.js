@@ -18,15 +18,9 @@ import { motion, isValidMotionProp } from "framer-motion";
 import NextImage from "next/image";
 import testImg from "../../public/port-imgs/test-02.webp";
 
-import {
-  RiCodeSSlashFill,
-  RiExternalLinkLine,
-  RiGithubFill,
-  RiUser5Line,
-} from "react-icons/ri";
+import { RiExternalLinkLine } from "react-icons/ri";
 import { SiGithub } from "react-icons/si";
-import { FaCoffee, FaUser, FaCode, FaSearch } from "react-icons/fa";
-import { BiUserCheck, BiImage, BiImageAdd } from "react-icons/bi";
+import { FaCode, FaSearch } from "react-icons/fa";
 import { MdCake, MdShoppingCart } from "react-icons/md";
 
 // CURRENT SCR SHOT SIZE: 1800 X 1200
@@ -35,16 +29,7 @@ import { MdCake, MdShoppingCart } from "react-icons/md";
 
 const ItemTreat = () => {
   return (
-    <Flex
-      as="li"
-      gap={16}
-      // sx={{
-      //   flexDirection: { base: "column", lg: "row" },
-      //   "&:nth-child(even)": {
-      //     flexDirection: { base: "column", lg: "row-reverse" },
-      //   },
-      // }}
-    >
+    <Flex as="li" gap={16}>
       {/* IMAGE AREA */}
       <Flex
         width={{ base: "auto", lg: "55%" }}
@@ -88,12 +73,6 @@ const ItemTreat = () => {
               Cart integrated as a side drawer for convenience
             </Text>
           </Stack>
-          {/* <Stack direction="row" columnGap={3} align="center">
-              <Circle size={8} bg="pink.400">
-                <Icon as={BiImageAdd} color="#fff" />
-              </Circle>
-              <Text fontSize="xl">Load more content as you browse</Text>
-            </Stack> */}
           <Stack direction="row" columnGap={3} align="center">
             <Circle size={10} bg="pink.400">
               <Icon as={FaCode} color="#fff" w={5} h={5} />

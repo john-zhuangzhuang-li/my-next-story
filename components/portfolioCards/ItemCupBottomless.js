@@ -35,16 +35,7 @@ import { MdImage } from "react-icons/md";
 
 const ItemCupBottomless = () => {
   return (
-    <Flex
-      as="li"
-      gap={16}
-      // sx={{
-      //   flexDirection: { base: "column", lg: "row" },
-      //   "&:nth-child(even)": {
-      //     flexDirection: { base: "column", lg: "row-reverse" },
-      //   },
-      // }}
-    >
+    <Flex as="li" gap={16}>
       {/* IMAGE AREA */}
       <Flex
         width={{ base: "auto", lg: "55%" }}
@@ -91,12 +82,6 @@ const ItemCupBottomless = () => {
               content as you browse
             </Text>
           </Stack>
-          {/* <Stack direction="row" columnGap={3} align="center">
-            <Circle size={8} bg="teal.400">
-              <Icon as={BiImageAdd} color="#fff" />
-            </Circle>
-            <Text fontSize="xl">Load more content as you browse</Text>
-          </Stack> */}
           <Stack direction="row" columnGap={3} align="center">
             <Circle size={10} bg="teal.400">
               <Icon as={FaCode} color="#fff" w={5} h={5} />

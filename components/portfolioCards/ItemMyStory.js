@@ -18,24 +18,10 @@ import { motion, isValidMotionProp } from "framer-motion";
 import NextImage from "next/image";
 import testImg from "../../public/port-imgs/test-02.webp";
 
-import {
-  RiCodeSSlashFill,
-  RiExternalLinkLine,
-  RiGithubFill,
-  RiUser5Line,
-} from "react-icons/ri";
+import { RiExternalLinkLine } from "react-icons/ri";
 import { SiGithub } from "react-icons/si";
-import { FaCoffee, FaUser, FaCode, FaSearch, FaGlasses } from "react-icons/fa";
-import { BiUserCheck, BiImage, BiImageAdd, BiGlasses } from "react-icons/bi";
-import {
-  MdCake,
-  MdShoppingCart,
-  MdUpgrade,
-  MdAnimation,
-  MdUpdate,
-} from "react-icons/md";
-import { GrUpdate } from "react-icons/gr";
-import { BsEyeglasses } from "react-icons/bs";
+import { FaCode, FaGlasses } from "react-icons/fa";
+import { MdAnimation, MdUpdate } from "react-icons/md";
 
 // CURRENT SCR SHOT SIZE: 1800 X 1200
 
@@ -43,16 +29,7 @@ import { BsEyeglasses } from "react-icons/bs";
 
 const ItemMyStory = () => {
   return (
-    <Flex
-      as="li"
-      gap={16}
-      // sx={{
-      //   flexDirection: { base: "column", lg: "row" },
-      //   "&:nth-child(even)": {
-      //     flexDirection: { base: "column", lg: "row-reverse" },
-      //   },
-      // }}
-    >
+    <Flex as="li" gap={16}>
       {/* IMAGE AREA */}
       <Flex
         width={{ base: "auto", lg: "55%" }}
