@@ -30,15 +30,19 @@ const SkillCard = ({ iconSrc: src, title }) => {
       _before={{
         content: '""',
         position: "absolute",
-        inset: "5px -5px -12px",
-        // transform: "translateY(10px)",
+        inset: "10px -5px -12px",
         // bg: "pink.500",
-        bgGradient: "linear(to-l, #7928CA, #FF0080)",
+
+        // LIKELY TO USE
+        bgGradient: `linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)`,
+
+        transform: "scale(0.55)",
+
         borderRadius: "9xl",
         filter: "blur(18px)",
         zIndex: "-1",
         opacity: "0",
-        transition: "all 0.2s",
+        transition: "all 0.3s",
       }}
       _after={{
         content: '""',
@@ -53,7 +57,7 @@ const SkillCard = ({ iconSrc: src, title }) => {
         borderRadius: "lg",
       }}
       sx={{
-        "&:hover::before": { opacity: "1" },
+        "&:hover::before": { opacity: "1", transform: "scale(1)" },
       }}
     >
       <Image

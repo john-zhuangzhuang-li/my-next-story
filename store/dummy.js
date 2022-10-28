@@ -1,8 +1,25 @@
 export const certData = [
-  { id: "certImg01", title: "JavaScript" },
-  { id: "certImg02", title: "React" },
-  { id: "certImg03", title: "Advanced CSS" },
-  { id: "certImg04", title: "Web Development" },
+  {
+    id: "certImg01",
+    title: "JavaScript",
+    gradient: `linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%)`,
+  },
+  {
+    id: "certImg02",
+    title: "React",
+    gradient: `radial-gradient( circle farthest-corner at 10% 20%,  rgba(97,186,255,1) 0%, rgba(166,239,253,1) 90.1% )`,
+  },
+  {
+    id: "certImg03",
+    title: "Advanced CSS",
+    // gradient: `linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)`,
+    gradient: `linear-gradient( 180.2deg,  rgba(128,174,248,1) 14.1%, rgba(50,118,227,1) 77% )`,
+  },
+  {
+    id: "certImg04",
+    title: "Web Development",
+    gradient: `radial-gradient( circle farthest-corner at 10% 20%,  rgba(62,133,238,1) 1.1%, rgba(227,137,240,1) 43.7%, rgba(243,193,124,1) 89.7% )`,
+  },
 ];
 
 export const skillIconData = [

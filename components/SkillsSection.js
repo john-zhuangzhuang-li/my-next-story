@@ -39,7 +39,7 @@ const SkillsSection = () => {
         variants={list}
         listStyleType="none"
         display="flex"
-        gap={6}
+        gap={9}
         justifyContent="center"
         flexWrap="wrap"
       >

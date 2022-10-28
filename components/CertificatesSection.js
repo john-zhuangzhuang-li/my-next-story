@@ -56,8 +56,8 @@ const CertificatesSection = () => {
         gap={6}
         listStyleType="none"
       >
-        {certData.map(({ id, title }) => (
-          <CertificateCard key={id} id={id} title={title} />
+        {certData.map((item) => (
+          <CertificateCard key={item.id} {...item} />
         ))}
       </CertList>
       {/* </Grid> */}

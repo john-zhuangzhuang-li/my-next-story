@@ -15,9 +15,8 @@ import certImg02 from "../public/cert-imgs/cert-02.webp";
 import certImg03 from "../public/cert-imgs/cert-03.webp";
 import certImg04 from "../public/cert-imgs/cert-04.webp";
 
-import { DiJavascript1, DiCssTricks, DiCss3 } from "react-icons/di";
+import { DiJavascript1, DiCss3 } from "react-icons/di";
 import { FaReact, FaCode } from "react-icons/fa";
-import { RiCodeSSlashFill } from "react-icons/ri";
 
 const certImgList = {
   certImg01,
@@ -53,7 +52,7 @@ const header = {
   hidden: { opacity: 0, y: "-20px" },
 };
 
-const CertificateCard = ({ id, title }) => {
+const CertificateCard = ({ id, title, gradient }) => {
   return (
     <Flex
       //   display="flex"
@@ -81,7 +80,8 @@ const CertificateCard = ({ id, title }) => {
         inset: "-5px",
         // transform: "translateY(10px)",
         // bg: "pink.500",
-        bgGradient: "linear(to-l, #7928CA, #FF0080)",
+        // bgGradient: "linear(to-l, #7928CA, #FF0080)",
+        bgGradient: gradient,
         borderRadius: "2xl",
         filter: "blur(15px)",
         zIndex: "-1",
@@ -115,7 +115,8 @@ const CertificateCard = ({ id, title }) => {
         "&:hover::before": { opacity: "0.75" },
         "&:hover::after": {
           opacity: "0.75",
-          bgGradient: "linear(to-l, #7928CA, #FF0080)",
+          // bgGradient: "linear(to-l, #7928CA, #FF0080)",
+          bgGradient: gradient,
         },
       }}
     >
@@ -128,10 +129,17 @@ const CertificateCard = ({ id, title }) => {
         alignSelf="flex-start"
         overflow="hidden"
       >
-        <Circle size={12} bgGradient="linear(to-l, #7928CA, #FF0080)" ml={3}>
+        <Circle size={12} bgGradient={gradient} ml={3}>
           <Icon as={certIconList[id]} w={6} h={6} color="#fff" />
         </Circle>
-        <Heading size="lg" ml={3} noOfLines={1}>
+        <Heading
+          size="lg"
+          ml={3}
+          noOfLines={1}
+          // bgGradient="linear(to-l, #7928CA, #FF0080)"
+          bgGradient={gradient}
+          bgClip="text"
+        >
           {title}
         </Heading>
       </CertTitle>
