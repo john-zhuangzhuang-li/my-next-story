@@ -63,8 +63,14 @@ const portfolio = {
 };
 
 const image = {
-  visible: { x: "0%" },
-  hidden: { x: "-120%" },
+  visible: {
+    x: "0%",
+    transition: {
+      type: "spring",
+      bounce: 0.2,
+    },
+  },
+  hidden: { x: "-115%" },
 };
 
 const feature = {
@@ -81,23 +87,25 @@ const ItemCupBottomless = () => {
       initial="hidden"
       whileInView="visible"
       variants={portfolio}
-      viewport={{ once: true }}
+      // viewport={{ once: true }}
     >
       {/* IMAGE AREA */}
       <Flex
         width={{ base: "auto", lg: "55%" }}
-        bg="teal.300"
+        // bg="teal.300"
+        bgGradient="linear-gradient(-225deg, #473B7B 0%, #3584A7 51%, #30D2BE 100%)"
         justifyContent="center"
         alignItems="center"
         p={{ base: 3, md: 9 }}
         borderRadius="lg"
+        overflow="hidden"
       >
         {/* IMAGE BOX */}
         <PortfolioImage
           display="flex"
           borderRadius="lg"
-          overflow="hidden"
           variants={image}
+          overflow="hidden"
         >
           <NextImage src={testImg} alt="Portfolio image" />
         </PortfolioImage>
@@ -105,7 +113,9 @@ const ItemCupBottomless = () => {
       {/* TITLE AREA */}
       <Flex flex="1" flexDir="column" rowGap={8} justify="center">
         <Stack direction="column" rowGap={2}>
-          <Heading size="2xl">Cup Bottomless</Heading>
+          <Heading size="2xl" color="teal.500">
+            Cup Bottomless
+          </Heading>
           <Text fontSize="xl">Photo gallery of stylish coffee makers</Text>
         </Stack>
 
@@ -118,7 +128,7 @@ const ItemCupBottomless = () => {
             alignItems="center"
             variants={feature}
           >
-            <Circle size={10} bg="teal.400">
+            <Circle size={10} bg="teal.500">
               <Icon as={FaCoffee} color="#fff" w={5} h={5} />
             </Circle>
             <Text fontSize="xl">Responsive design with color modes</Text>
@@ -130,7 +140,7 @@ const ItemCupBottomless = () => {
             alignItems="center"
             variants={feature}
           >
-            <Circle size={10} bg="teal.400">
+            <Circle size={10} bg="teal.500">
               <Icon as={FaUser} color="#fff" w={5} h={5} />
             </Circle>
             <Text fontSize="xl">
@@ -144,7 +154,7 @@ const ItemCupBottomless = () => {
             alignItems="center"
             variants={feature}
           >
-            <Circle size={10} bg="teal.400">
+            <Circle size={10} bg="teal.500">
               <Icon as={MdImage} color="#fff" w={5} h={5} />
             </Circle>
             <Text fontSize="xl">
@@ -159,7 +169,7 @@ const ItemCupBottomless = () => {
             alignItems="center"
             variants={feature}
           >
-            <Circle size={10} bg="teal.400">
+            <Circle size={10} bg="teal.500">
               <Icon as={FaCode} color="#fff" w={5} h={5} />
             </Circle>
             <Text fontSize="xl">

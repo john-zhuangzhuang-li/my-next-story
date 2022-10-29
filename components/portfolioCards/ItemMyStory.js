@@ -27,62 +27,150 @@ import { MdAnimation, MdUpdate } from "react-icons/md";
 
 // CONSIDER STILL INCLUDE CHIPS IN - TEXT ONLY?
 
+const PortfolioItem = chakra(motion.li, {
+  shouldForwardProp: (prop) =>
+    isValidMotionProp(prop) || shouldForwardProp(prop),
+});
+
+const PortfolioImage = chakra(motion.figure, {
+  shouldForwardProp: (prop) =>
+    isValidMotionProp(prop) || shouldForwardProp(prop),
+});
+
+const FeatureItem = chakra(motion.li, {
+  shouldForwardProp: (prop) =>
+    isValidMotionProp(prop) || shouldForwardProp(prop),
+});
+
+const portfolio = {
+  visible: {
+    opacity: 1,
+    transition: {
+      when: "beforeChildren",
+      staggerChildren: 0.1,
+    },
+  },
+  hidden: {
+    opacity: 0,
+    transition: {
+      when: "afterChildren",
+    },
+  },
+};
+
+const image = {
+  visible: {
+    y: "0%",
+    transition: {
+      type: "spring",
+      bounce: 0.2,
+    },
+  },
+  hidden: { y: "115%" },
+};
+
+const feature = {
+  visible: { opacity: 1, y: "0" },
+  hidden: { opacity: 0, y: "-20px" },
+};
+
 const ItemMyStory = () => {
   return (
-    <Flex as="li" gap={16}>
+    <PortfolioItem
+      display="flex"
+      overflow="hidden"
+      gap={16}
+      initial="hidden"
+      whileInView="visible"
+      variants={portfolio}
+      // viewport={{ once: true }}
+    >
       {/* IMAGE AREA */}
       <Flex
         width={{ base: "auto", lg: "55%" }}
-        bg="purple.300"
+        // bg="purple.300"
+        bgGradient="linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%)"
         justifyContent="center"
         alignItems="center"
         p={{ base: 3, md: 9 }}
         borderRadius="lg"
+        overflow="hidden"
       >
         {/* IMAGE WRAP */}
-        <Flex borderRadius="lg" overflow="hidden">
+        <PortfolioImage
+          display="flex"
+          borderRadius="lg"
+          variants={image}
+          overflow="hidden"
+        >
           <NextImage src={testImg} alt="Portfolio image" />
-        </Flex>
+        </PortfolioImage>
       </Flex>
       {/* TITLE AREA */}
       <Flex flex="1" flexDir="column" rowGap={8} justify="center">
         <Stack direction="column" rowGap={2}>
-          <Heading size="2xl">My story</Heading>
+          <Heading size="2xl" color="purple.500">
+            My story
+          </Heading>
           <Text fontSize="xl">My latest portfolio page</Text>
         </Stack>
 
         {/* LIST COMPONENT */}
-        <Stack direction="column" rowGap={3}>
-          <Stack direction="row" columnGap={3} align="center">
-            <Circle size={10} bg="purple.400">
+        <Stack as="ul" direction="column" rowGap={3} listStyleType="none">
+          <FeatureItem
+            display="flex"
+            flexDir="row"
+            columnGap={3}
+            alignItems="center"
+            variants={feature}
+          >
+            <Circle size={10} bg="purple.500">
               <Icon as={FaGlasses} color="#fff" w={5} h={5} />
             </Circle>
             <Text fontSize="xl">Responsive design</Text>
-          </Stack>
-          <Stack direction="row" columnGap={3} align="center">
-            <Circle size={10} bg="purple.400">
+          </FeatureItem>
+          <FeatureItem
+            display="flex"
+            flexDir="row"
+            columnGap={3}
+            alignItems="center"
+            variants={feature}
+          >
+            <Circle size={10} bg="purple.500">
               <Icon as={MdUpdate} color="#fff" w={5} h={5} />
             </Circle>
             <Text fontSize="xl">
               Upgraded from a vanilla prototype and an alternative retro version
             </Text>
-          </Stack>
-          <Stack direction="row" columnGap={3} align="center">
-            <Circle size={10} bg="purple.400">
+          </FeatureItem>
+          <FeatureItem
+            display="flex"
+            flexDir="row"
+            columnGap={3}
+            alignItems="center"
+            variants={feature}
+          >
+            <Circle size={10} bg="purple.500">
               <Icon as={MdAnimation} color="#fff" w={5} h={5} />
             </Circle>
             <Text fontSize="xl">
               Coordinated, layered, and scroll-related animation for components
             </Text>
-          </Stack>
-          <Stack direction="row" columnGap={3} align="center">
-            <Circle size={10} bg="purple.400">
+          </FeatureItem>
+          <FeatureItem
+            display="flex"
+            flexDir="row"
+            columnGap={3}
+            alignItems="center"
+            variants={feature}
+          >
+            <Circle size={10} bg="purple.500">
               <Icon as={FaCode} color="#fff" w={5} h={5} />
             </Circle>
             <Text fontSize="xl">
               Built with JavaScript, Next.js, Chakra UI, and Framer motion
             </Text>
-          </Stack>
+          </FeatureItem>
         </Stack>
 
         {/* ACTION AREA */}
@@ -112,7 +200,7 @@ const ItemMyStory = () => {
           </Link>
         </Stack>
       </Flex>
-    </Flex>
+    </PortfolioItem>
   );
 };
 

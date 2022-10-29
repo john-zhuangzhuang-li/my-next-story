@@ -34,7 +34,7 @@ const SkillsSection = () => {
       <SkillList
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
+        // viewport={{ once: true }}
         // whileHover="hover"
         variants={list}
         listStyleType="none"
