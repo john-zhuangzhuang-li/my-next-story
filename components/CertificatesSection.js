@@ -25,7 +25,7 @@ const list = {
     },
   },
   hidden: {
-    opacity: 1,
+    opacity: 0,
     transition: {
       when: "afterChildren",
     },

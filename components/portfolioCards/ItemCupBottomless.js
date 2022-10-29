@@ -31,11 +31,58 @@ import { MdImage } from "react-icons/md";
 
 // CURRENT SCR SHOT SIZE: 1800 X 1200
 
-// CONSIDER STILL INCLUDE CHIPS IN - TEXT ONLY?
+const PortfolioItem = chakra(motion.li, {
+  shouldForwardProp: (prop) =>
+    isValidMotionProp(prop) || shouldForwardProp(prop),
+});
+
+const PortfolioImage = chakra(motion.figure, {
+  shouldForwardProp: (prop) =>
+    isValidMotionProp(prop) || shouldForwardProp(prop),
+});
+
+const FeatureItem = chakra(motion.li, {
+  shouldForwardProp: (prop) =>
+    isValidMotionProp(prop) || shouldForwardProp(prop),
+});
+
+const portfolio = {
+  visible: {
+    opacity: 1,
+    transition: {
+      when: "beforeChildren",
+      staggerChildren: 0.1,
+    },
+  },
+  hidden: {
+    opacity: 0,
+    transition: {
+      when: "afterChildren",
+    },
+  },
+};
+
+const image = {
+  visible: { x: "0%" },
+  hidden: { x: "-120%" },
+};
+
+const feature = {
+  visible: { opacity: 1, y: "0" },
+  hidden: { opacity: 0, y: "-20px" },
+};
 
 const ItemCupBottomless = () => {
   return (
-    <Flex as="li" gap={16}>
+    <PortfolioItem
+      display="flex"
+      overflow="hidden"
+      gap={16}
+      initial="hidden"
+      whileInView="visible"
+      variants={portfolio}
+      viewport={{ once: true }}
+    >
       {/* IMAGE AREA */}
       <Flex
         width={{ base: "auto", lg: "55%" }}
@@ -45,10 +92,15 @@ const ItemCupBottomless = () => {
         p={{ base: 3, md: 9 }}
         borderRadius="lg"
       >
-        {/* IMAGE WRAP */}
-        <Flex borderRadius="lg" overflow="hidden">
+        {/* IMAGE BOX */}
+        <PortfolioImage
+          display="flex"
+          borderRadius="lg"
+          overflow="hidden"
+          variants={image}
+        >
           <NextImage src={testImg} alt="Portfolio image" />
-        </Flex>
+        </PortfolioImage>
       </Flex>
       {/* TITLE AREA */}
       <Flex flex="1" flexDir="column" rowGap={8} justify="center">
@@ -58,22 +110,40 @@ const ItemCupBottomless = () => {
         </Stack>
 
         {/* LIST COMPONENT */}
-        <Stack direction="column" rowGap={3}>
-          <Stack direction="row" columnGap={3} align="center">
+        <Stack as="ul" direction="column" rowGap={3} listStyleType="none">
+          <FeatureItem
+            display="flex"
+            flexDir="row"
+            columnGap={3}
+            alignItems="center"
+            variants={feature}
+          >
             <Circle size={10} bg="teal.400">
               <Icon as={FaCoffee} color="#fff" w={5} h={5} />
             </Circle>
             <Text fontSize="xl">Responsive design with color modes</Text>
-          </Stack>
-          <Stack direction="row" columnGap={3} align="center">
+          </FeatureItem>
+          <FeatureItem
+            display="flex"
+            flexDir="row"
+            columnGap={3}
+            alignItems="center"
+            variants={feature}
+          >
             <Circle size={10} bg="teal.400">
               <Icon as={FaUser} color="#fff" w={5} h={5} />
             </Circle>
             <Text fontSize="xl">
               User authentication and upload feature with image optimization
             </Text>
-          </Stack>
-          <Stack direction="row" columnGap={3} align="center">
+          </FeatureItem>
+          <FeatureItem
+            display="flex"
+            flexDir="row"
+            columnGap={3}
+            alignItems="center"
+            variants={feature}
+          >
             <Circle size={10} bg="teal.400">
               <Icon as={MdImage} color="#fff" w={5} h={5} />
             </Circle>
@@ -81,15 +151,21 @@ const ItemCupBottomless = () => {
               Initial page loaded by static site generator, and load more
               content as you browse
             </Text>
-          </Stack>
-          <Stack direction="row" columnGap={3} align="center">
+          </FeatureItem>
+          <FeatureItem
+            display="flex"
+            flexDir="row"
+            columnGap={3}
+            alignItems="center"
+            variants={feature}
+          >
             <Circle size={10} bg="teal.400">
               <Icon as={FaCode} color="#fff" w={5} h={5} />
             </Circle>
             <Text fontSize="xl">
               Built with Next.js, TypeScript, Chakra UI, and Firebase
             </Text>
-          </Stack>
+          </FeatureItem>
         </Stack>
 
         {/* ACTION AREA */}
@@ -119,7 +195,7 @@ const ItemCupBottomless = () => {
           </Link>
         </Stack>
       </Flex>
-    </Flex>
+    </PortfolioItem>
   );
 };
 

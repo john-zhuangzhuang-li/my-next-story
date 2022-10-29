@@ -12,12 +12,6 @@ const Home = () => {
       <Header />
       <SkillsSection />
       <PortfolioSection />
-      {/* <Box bg="green.100" minH="600px" gridColumn="center">
-        BIG BOX
-      </Box> */}
-      {/* <Box bg="green.100" minH="600px" gridColumn="center">
-        BIG BOX
-      </Box> */}
       <CertificatesSection />
     </Layout>
   );
