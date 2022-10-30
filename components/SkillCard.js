@@ -24,7 +24,8 @@ const SkillCard = ({ iconSrc: src, title }) => {
       justifyContent="center"
       alignItems="center"
       cursor="default"
-      borderRadius="lg"
+      // borderRadius="lg"
+      borderRadius="2xl"
       // bg="gray.700"
       position="relative"
       _before={{
@@ -54,7 +55,8 @@ const SkillCard = ({ iconSrc: src, title }) => {
         border: "1px",
         borderColor: "gray.200",
         boxShadow: "base",
-        borderRadius: "lg",
+        // borderRadius: "lg",
+        borderRadius: "2xl",
       }}
       sx={{
         "&:hover::before": { opacity: "1", transform: "scale(1)" },

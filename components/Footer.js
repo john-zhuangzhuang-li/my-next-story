@@ -25,7 +25,7 @@ const Footer = () => {
         />
       </Link>
       <Heading as="h6" size="xs">
-        Build by John Li, Seeker of jobs 🔍
+        Built by John Li, Seeker of jobs 🕵️‍♂️
       </Heading>
     </Flex>
   );
