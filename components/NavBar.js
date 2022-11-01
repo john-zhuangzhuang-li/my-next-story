@@ -15,6 +15,7 @@ import {
 } from "@chakra-ui/react";
 import { motion, isValidMotionProp } from "framer-motion";
 import { BiGlassesAlt } from "react-icons/bi";
+import { FaGlasses } from "react-icons/fa";
 
 import ProgressBar from "./ProgressBar";
 
@@ -50,7 +51,7 @@ const NavBar = () => {
         zIndex="200"
         py={3}
       >
-        <Icon as={BiGlassesAlt} w={5} h={5} color="pink.300" />
+        <Icon as={FaGlasses} w={6} h={6} color="purple.500" />
       </Flex>
       <Flex
         gridColumn="right"

@@ -1,5 +1,11 @@
 import { chakra, shouldForwardProp } from "@chakra-ui/react";
-import { motion, isValidMotionProp, useScroll, useSpring } from "framer-motion";
+import {
+  motion,
+  isValidMotionProp,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 
 const ProgressBox = chakra(motion.figure, {
   shouldForwardProp: (prop) =>
@@ -9,9 +15,10 @@ const ProgressBox = chakra(motion.figure, {
 const ProgressBar = () => {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress);
+  const padding = useTransform(scrollYProgress, [0, 0.1], ["3rem", "0rem"]);
   return (
     <ProgressBox
-      style={{ scaleX }}
+      style={{ scaleX, padding }}
       gridColumn="1 / -1"
       gridRow="1 / span 1"
       zIndex="150"

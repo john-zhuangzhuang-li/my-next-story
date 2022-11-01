@@ -10,7 +10,7 @@ const Container = chakra("div", {
     rowGap: 6,
     columnGap: 6,
     gridTemplateColumns:
-      "minmax(0, 1fr) [center-start] minmax(min-content, 75rem) [center-end] minmax(0, 1fr)",
+      "minmax(0, 1fr) [center-start] minmax(min-content, 75em) [center-end] minmax(0, 1fr)",
     gridAutoFlow: "column",
   },
 });
