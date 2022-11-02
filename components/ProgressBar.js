@@ -14,11 +14,17 @@ const ProgressBox = chakra(motion.figure, {
 
 const ProgressBar = () => {
   const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress);
-  const padding = useTransform(scrollYProgress, [0, 0.1], ["3rem", "0rem"]);
+  // const scaleX = useSpring(scrollYProgress);
+  // const padding = useTransform(
+  //   scrollYProgress,
+  //   [0, 0.1, 0.15],
+  //   ["3rem", "3rem", "0rem"]
+  // );
+  // const scaleY = useTransform(scrollYProgress, [0, 0.1], ["1.5", "1"]);
+
   return (
     <ProgressBox
-      style={{ scaleX, padding }}
+      style={{ scaleX: scrollYProgress }}
       gridColumn="1 / -1"
       gridRow="1 / span 1"
       zIndex="150"

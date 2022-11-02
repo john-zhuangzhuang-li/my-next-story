@@ -13,7 +13,13 @@ import {
   Circle,
   Link,
 } from "@chakra-ui/react";
-import { motion, isValidMotionProp } from "framer-motion";
+import {
+  motion,
+  isValidMotionProp,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import { BiGlassesAlt } from "react-icons/bi";
 import { FaGlasses } from "react-icons/fa";
 
@@ -24,7 +30,7 @@ const NavBar = () => {
     <Grid
       as="nav"
       pos="sticky"
-      top="0"
+      top={-6}
       gridColumn="1 / -1"
       bg="whiteAlpha.500"
       backdropFilter="auto"
@@ -32,6 +38,8 @@ const NavBar = () => {
       templateColumns="[left-start] minmax(0, 1fr) [left-end logo-start] min-content [logo-end right-start] minmax(0, 1fr) [right-end]"
       columnGap={6}
       zIndex="100"
+      pt={6}
+      // transition="all 0.2s ease-in-out"
     >
       <ProgressBar />
       <Flex

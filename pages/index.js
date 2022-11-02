@@ -21,7 +21,7 @@ const Home = () => {
     <Layout>
       <Header onScrollTo={handleScrollTo} />
       <Box gridColumn="center" minH="10rem" ref={aboutSpacerRef}></Box>
-      <AboutSection />
+      {/* <AboutSection /> */}
       <SkillsSection />
       <PortfolioSection />
       <CertificatesSection />
