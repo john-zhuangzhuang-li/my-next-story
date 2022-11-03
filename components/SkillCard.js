@@ -7,7 +7,7 @@ const SkillItem = chakra(motion.li, {
 });
 
 const item = {
-  visible: { opacity: 1, scale: 1, transition: { type: "spring", mass: 1.25 } },
+  visible: { opacity: 1, scale: 1, transition: { type: "spring", mass: 1.05 } },
   hidden: { opacity: 0, scale: 0.1 },
 };
 

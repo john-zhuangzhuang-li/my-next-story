@@ -16,8 +16,8 @@ import {
 import { motion, isValidMotionProp } from "framer-motion";
 
 import NextImage from "next/image";
-import imgW from "../public/header-imgs/header-01-T01-W.webp";
-import imgCW from "../public/header-imgs/header-01-T01-CW.webp";
+
+import headerImg from "../public/header-imgs/header-01-T01-CW.webp";
 
 import {
   RiCodeSSlashFill,
@@ -51,7 +51,6 @@ const background = {
   visible: {
     opacity: 1,
     scale: 1,
-    // rotate: 0,
     transition: {
       when: "beforeChildren",
       staggerChildren: 0.1,
@@ -61,7 +60,6 @@ const background = {
   hidden: {
     opacity: 0,
     scale: 0.1,
-    // rotate: 180,
     transition: {
       when: "afterChildren",
     },
@@ -160,6 +158,7 @@ const Header = ({ onScrollTo }) => {
         alignItems="center"
         pb={{ base: "0rem", lg: "1rem" }}
         // bg="teal.300"
+        // flex="1"
       >
         {/* <Flex */}
         <FigureBox
@@ -186,7 +185,7 @@ const Header = ({ onScrollTo }) => {
           ></Circle>
           {/* <Flex transform="scale(1.2) translateY(-1em)"> */}
           <ImgWrapper display="flex" variants={image}>
-            <NextImage src={imgCW} alt="Header image" />
+            <NextImage src={headerImg} alt="Header image" />
           </ImgWrapper>
           {/* </Flex> */}
         </FigureBox>

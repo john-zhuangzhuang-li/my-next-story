@@ -11,7 +11,7 @@ export const certData = [
   },
   {
     id: "certImg03",
-    title: "Advanced CSS",
+    title: "CSS and Sass",
     // gradient: `linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)`,
     gradient: `linear-gradient( 180.2deg,  rgba(128,174,248,1) 14.1%, rgba(50,118,227,1) 77% )`,
   },
