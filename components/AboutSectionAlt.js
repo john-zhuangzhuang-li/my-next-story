@@ -20,6 +20,10 @@ import { motion, isValidMotionProp, useScroll } from "framer-motion";
 
 import NextImage from "next/image";
 
+import { FiDownload } from "react-icons/fi";
+import { MdFileDownload } from "react-icons/md";
+import { RiGithubFill } from "react-icons/ri";
+
 // const Section = chakra(motion.section, {
 //   shouldForwardProp: (prop) =>
 //     isValidMotionProp(prop) || shouldForwardProp(prop),
@@ -34,16 +38,21 @@ const AboutSectionAlt = () => {
   return (
     <Flex
       gridColumn="center"
-      justifyContent="center"
       flexDir="column"
-      rowGap={6}
-      bg="gray.100"
+      justifyContent="center"
+      alignItems="flex-start"
+      rowGap={12}
       p={12}
+      bg="gray.100"
+      borderRadius="xl"
     >
       <Heading size="xl">About me</Heading>
-
-      <Grid gridTemplateColumns="repeat(2, 1fr)" columnGap={6}>
-        <Stack dir="column" spacing={6}>
+      <Grid
+        gridTemplateColumns={{ base: "1fr", lg: "repeat(2, 1fr)" }}
+        // gridTemplateColumns="repeat(2, 1fr)"
+        columnGap={6}
+      >
+        <Stack dir="column" align="flex-start" spacing={6}>
           <Text fontSize="xl" textStyle="content">
             It's been over a decade since I wrote out my first HTML page in
             middle school using Notepad, but the memory never fades for me.
@@ -54,7 +63,14 @@ const AboutSectionAlt = () => {
             adapt to the modern environment of front-end web development.
           </Text>
         </Stack>
-        <Stack dir="column" spacing={6}>
+        <Stack
+          dir="column"
+          align="flex-start"
+          spacing={6}
+          //   p={12}
+          //   bg="gray.100"
+          //   borderRadius="lg"
+        >
           {/* <Heading size="xl">About me</Heading> */}
           <Text fontSize="xl" textStyle="content">
             It's been over a decade since I wrote out my first HTML page in
@@ -70,9 +86,24 @@ const AboutSectionAlt = () => {
             touchpoint, and there is no better starting place than the web
             interface to make this happen!
           </Text>
+          {/* <Button
+            rightIcon={<Icon as={MdFileDownload} />}
+            colorScheme="purple"
+            variant="solid"
+            textTransform="uppercase"
+          >
+            resume
+          </Button> */}
         </Stack>
       </Grid>
-
+      <Button
+        rightIcon={<Icon as={MdFileDownload} />}
+        colorScheme="purple"
+        variant="solid"
+        textTransform="uppercase"
+      >
+        resume
+      </Button>
       {/* <Text fontSize="xl">
         It's been over a decade since I wrote out my first HTML page in middle
         school using Notepad, but the memory never fades for me.

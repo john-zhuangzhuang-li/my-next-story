@@ -87,7 +87,9 @@ const ItemCupBottomless = () => {
       initial="hidden"
       whileInView="visible"
       variants={portfolio}
-      // viewport={{ once: true }}
+      viewport={{ once: true }}
+      minH="30rem"
+      // bg="purple.100"
     >
       {/* IMAGE AREA */}
       <Flex
@@ -99,6 +101,8 @@ const ItemCupBottomless = () => {
         p={{ base: 3, md: 9 }}
         borderRadius="lg"
         overflow="hidden"
+        // transition="padding 0.2s ease-in-out"
+        // _hover={{ p: 3 }}
       >
         {/* IMAGE BOX */}
         <PortfolioImage

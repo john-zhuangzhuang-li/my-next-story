@@ -39,18 +39,20 @@ const CertificatesSection = () => {
       gridColumn="center"
       minH="30rem"
       flexDir="column"
-      rowGap={3}
-      my={12}
+      alignItems="center"
+      rowGap={12}
+      // my={12}
       //   bgGradient="linear(to-r, #fff, gray.100)"
     >
-      <Heading as="h3" size="md">
-        Certificates
+      <Heading as="h3" size="xl">
+        Courses learned
       </Heading>
       {/* <Grid gridTemplateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }} gap={6}> */}
       <CertList
         initial="hidden"
         whileInView="visible"
         variants={list}
+        viewport={{ once: true }}
         display="grid"
         gridTemplateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}
         gap={6}

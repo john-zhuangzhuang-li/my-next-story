@@ -96,7 +96,7 @@ const CertificateCard = ({ id, title, gradient }) => {
         zIndex: "-1",
         opacity: "0.4",
         bg: "gray.400",
-        boxShadow: "base",
+        boxShadow: "lg",
         // bgGradient: "linear(to-l, #7928CA, #FF0080)",
         borderRadius: "2xl",
         transition: "all 0.2s",

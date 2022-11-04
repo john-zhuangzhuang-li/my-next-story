@@ -27,14 +27,21 @@ const list = {
 
 const SkillsSection = () => {
   return (
-    <Flex as="section" gridColumn="center" flexDir="column" rowGap={3} my={12}>
-      <Heading as="h3" size="md">
-        SKILLS
+    <Flex
+      as="section"
+      gridColumn="center"
+      alignItems="center"
+      flexDir="column"
+      rowGap={12}
+      // my={12}
+    >
+      <Heading as="h3" size="xl">
+        Skills & Tools
       </Heading>
       <SkillList
         initial="hidden"
         whileInView="visible"
-        // viewport={{ once: true }}
+        viewport={{ once: true }}
         // whileHover="hover"
         variants={list}
         listStyleType="none"

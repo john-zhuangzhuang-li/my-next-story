@@ -15,10 +15,10 @@ const Container = chakra("div", {
   },
 });
 
-const Layout = ({ children }) => {
+const Layout = ({ onScrollTo, children }) => {
   return (
     <Container>
-      <NavBar />
+      <NavBar onScrollTo={onScrollTo} />
       {children}
       <Footer />
     </Container>

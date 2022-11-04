@@ -15,22 +15,44 @@ const Home = () => {
   const portSpacerRef = useRef(null);
   const certSpacerRef = useRef(null);
 
-  const handleScrollTo = () => {
-    if (!aboutSpacerRef.current) return;
-    aboutSpacerRef.current.scrollIntoView({ behavior: "smooth" });
+  const sectionRefs = {
+    about: aboutSpacerRef,
+    skills: skillsSpacerRef,
+    port: portSpacerRef,
+    cert: certSpacerRef,
+  };
+
+  // const handleScrollTo = () => {
+  //   if (!aboutSpacerRef.current) return;
+  //   aboutSpacerRef.current.scrollIntoView({ behavior: "smooth" });
+  // };
+
+  const handleScrollTo = (e) => {
+    const { scrollId } = e.currentTarget.dataset;
+    if (!scrollId) return;
+    if (scrollId === "top") {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+      });
+      return;
+    }
+    if (!sectionRefs[scrollId].current) return;
+    sectionRefs[scrollId].current.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <Layout>
+    <Layout onScrollTo={handleScrollTo}>
       <Header onScrollTo={handleScrollTo} />
-      <Box gridColumn="center" minH={6} ref={aboutSpacerRef}></Box>
+      <Box gridColumn="center" h={24} ref={aboutSpacerRef}></Box>
       <AboutSectionAlt />
       {/* <AboutSection /> */}
-      <Box gridColumn="center" minH={6} ref={skillsSpacerRef}></Box>
+      <Box gridColumn="center" h={32} ref={skillsSpacerRef}></Box>
       <SkillsSection />
-      <Box gridColumn="center" minH={6} ref={portSpacerRef}></Box>
+      <Box gridColumn="center" h={32} ref={portSpacerRef}></Box>
       <PortfolioSection />
-      <Box gridColumn="center" minH={6} ref={certSpacerRef}></Box>
+      <Box gridColumn="center" h={32} ref={certSpacerRef}></Box>
       <CertificatesSection />
     </Layout>
   );

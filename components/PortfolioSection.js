@@ -16,13 +16,14 @@ const PortfolioSection = () => {
     <Flex
       as="main"
       gridColumn="center"
+      alignItems="center"
       flexDir="column"
-      rowGap={3}
-      my={24}
+      rowGap={24}
+      // my={24}
       //   bgGradient="linear(to-r, #fff, gray.100)"
     >
-      <Heading as="h3" size="md">
-        Portfolio
+      <Heading as="h3" size="xl">
+        Practice projects
       </Heading>
       <Flex
         as="ul"

@@ -83,7 +83,7 @@ const Header = ({ onScrollTo }) => {
   return (
     <Flex
       gridColumn="center"
-      h={{ base: "auto", lg: "50vh" }}
+      // h={{ base: "auto", lg: "50vh" }}
       minH="35rem"
       justifyContent={{ base: "flex-start", lg: "center" }}
       alignItems="center"
@@ -91,6 +91,7 @@ const Header = ({ onScrollTo }) => {
       gap={12}
       flexDir={{ base: "column-reverse", lg: "row" }}
       // mb={12}
+      // bg="purple.100"
     >
       {/* CONTENT BOX */}
       <Flex
@@ -131,11 +132,11 @@ const Header = ({ onScrollTo }) => {
             colorScheme="purple"
             variant="solid"
             textTransform="uppercase"
+            data-scroll-id="about"
             onClick={onScrollTo}
           >
             learn more
           </Button>
-
           <Link
             href="https://github.com/john-zhuangzhuang-li/my-next-story"
             isExternal
@@ -169,20 +170,45 @@ const Header = ({ onScrollTo }) => {
           w={{ base: "12rem", lg: "15rem" }}
           h={{ base: "16rem", lg: "17.5rem" }}
           // h="17.5rem"
-          borderRadius="0 0 1000em 1000em"
+          // borderRadius="0 0 9999px 9999px"
+          borderBottomLeftRadius="50%"
+          borderBottomRightRadius="50%"
+          // borderRadius="0 0 1000em 1000em"
           // bg="purple.400"
           justifyContent="center"
           alignItems="flex-end"
           overflow="hidden"
           position="relative"
+          sx={{
+            "&:hover": {
+              // borderRadius: "0 0 24px 24px",
+              borderBottomLeftRadius: "24px",
+              borderBottomRightRadius: "24px",
+              transition: "all 0.3s ease-in-out 0s",
+            },
+            "&:hover > div": {
+              borderRadius: "1.5em",
+              // opacity: "0.5",
+              // transition: "all 0.3s",
+            },
+          }}
         >
-          <Circle
+          <Box
             position="absolute"
             bottom="0"
-            // zIndex="25"
+            borderRadius="50%"
+            transition="all 0.3s ease-in-out"
+            w={{ base: "12rem", lg: "15rem" }}
+            h={{ base: "12rem", lg: "15rem" }}
+            bgGradient={`linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)`}
+            // bg="purple.600"
+          ></Box>
+          {/* <Circle
+            position="absolute"
+            bottom="0"
             size={{ base: "12rem", lg: "15rem" }}
             bgGradient={`linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)`}
-          ></Circle>
+          ></Circle> */}
           {/* <Flex transform="scale(1.2) translateY(-1em)"> */}
           <ImgWrapper display="flex" variants={image}>
             <NextImage src={headerImg} alt="Header image" />
