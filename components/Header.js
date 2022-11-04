@@ -54,6 +54,7 @@ const background = {
     transition: {
       when: "beforeChildren",
       staggerChildren: 0.1,
+      type: "tween",
       duration: 0.6,
     },
   },
@@ -64,6 +65,13 @@ const background = {
       when: "afterChildren",
     },
   },
+  // hover: {
+  //   borderRadius: "24px",
+  //   transition: {
+  //     type: "tween",
+  //     duration: 0.6,
+  //   },
+  // },
 };
 
 const image = {
@@ -166,28 +174,29 @@ const Header = ({ onScrollTo }) => {
           display="flex"
           initial="hidden"
           animate="visible"
+          // whileHover="hover"
           variants={background}
           w={{ base: "12rem", lg: "15rem" }}
           h={{ base: "16rem", lg: "17.5rem" }}
           // h="17.5rem"
           // borderRadius="0 0 9999px 9999px"
-          borderBottomLeftRadius="50%"
-          borderBottomRightRadius="50%"
-          // borderRadius="0 0 1000em 1000em"
+          // borderBottomLeftRadius="128px"
+          // borderBottomRightRadius="128px"
+          borderRadius="0 0 128px 128px"
           // bg="purple.400"
           justifyContent="center"
           alignItems="flex-end"
           overflow="hidden"
           position="relative"
           sx={{
+            transition: "border-radius 0.3s ease-in-out",
             "&:hover": {
-              // borderRadius: "0 0 24px 24px",
-              borderBottomLeftRadius: "24px",
-              borderBottomRightRadius: "24px",
-              transition: "all 0.3s ease-in-out 0s",
+              borderRadius: "0 0 24px 24px",
+              // borderBottomLeftRadius: "24px",
+              // borderBottomRightRadius: "24px",
             },
             "&:hover > div": {
-              borderRadius: "1.5em",
+              borderRadius: "24px",
               // opacity: "0.5",
               // transition: "all 0.3s",
             },
@@ -196,7 +205,7 @@ const Header = ({ onScrollTo }) => {
           <Box
             position="absolute"
             bottom="0"
-            borderRadius="50%"
+            borderRadius="128px"
             transition="all 0.3s ease-in-out"
             w={{ base: "12rem", lg: "15rem" }}
             h={{ base: "12rem", lg: "15rem" }}
