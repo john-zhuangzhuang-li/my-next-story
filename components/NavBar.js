@@ -14,6 +14,10 @@ import {
   Circle,
   Link,
   Spacer,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
 } from "@chakra-ui/react";
 import {
   motion,
@@ -22,8 +26,8 @@ import {
   useSpring,
   useTransform,
 } from "framer-motion";
-import { BiGlassesAlt } from "react-icons/bi";
-import { FaGlasses } from "react-icons/fa";
+import { FiMenu } from "react-icons/fi";
+import { FaGlasses, FaChevronDown } from "react-icons/fa";
 
 import ProgressBar from "./ProgressBar";
 
@@ -41,7 +45,7 @@ const NavBar = ({ onScrollTo }) => {
       pos="sticky"
       top={-6}
       gridColumn="1 / -1"
-      bg="whiteAlpha.500"
+      // bg="whiteAlpha.500"
       backdropFilter="auto"
       backdropBlur="10px"
       templateColumns="minmax(0, 1fr) [center-start] minmax(min-content, 75em) [center-end] minmax(0, 1fr)"
@@ -49,6 +53,7 @@ const NavBar = ({ onScrollTo }) => {
       // columnGap={6}
       zIndex="100"
       pt={6}
+      columnGap={6}
       // transition="all 0.2s ease-in-out"
     >
       <ProgressBar />
@@ -79,18 +84,60 @@ const NavBar = ({ onScrollTo }) => {
           </Heading>
         </Button>
         <Spacer />
-        <Button variant="ghost" data-scroll-id="about" onClick={onScrollTo}>
+        <Button
+          variant="ghost"
+          data-scroll-id="about"
+          onClick={onScrollTo}
+          display={{ base: "none", md: "flex" }}
+        >
           About
         </Button>
-        <Button variant="ghost" data-scroll-id="skills" onClick={onScrollTo}>
+        <Button
+          variant="ghost"
+          data-scroll-id="skills"
+          onClick={onScrollTo}
+          display={{ base: "none", md: "flex" }}
+        >
           Skills
         </Button>
-        <Button variant="ghost" data-scroll-id="port" onClick={onScrollTo}>
+        <Button
+          variant="ghost"
+          data-scroll-id="port"
+          onClick={onScrollTo}
+          display={{ base: "none", md: "flex" }}
+        >
           Projects
         </Button>
-        <Button variant="ghost" data-scroll-id="cert" onClick={onScrollTo}>
+        <Button
+          variant="ghost"
+          data-scroll-id="cert"
+          onClick={onScrollTo}
+          display={{ base: "none", md: "flex" }}
+        >
           Courses
         </Button>
+        <Box display={{ base: "flex", md: "none" }}>
+          <Menu>
+            {/* <MenuButton as={Button} rightIcon={<Icon as={FaChevronDown} />}>
+              Jump to
+            </MenuButton> */}
+            <MenuButton as={IconButton} aria-label="menu" icon={<FiMenu />} />
+            <MenuList>
+              <MenuItem data-scroll-id="about" onClick={onScrollTo}>
+                About
+              </MenuItem>
+              <MenuItem data-scroll-id="skills" onClick={onScrollTo}>
+                Skills
+              </MenuItem>
+              <MenuItem data-scroll-id="port" onClick={onScrollTo}>
+                Projects
+              </MenuItem>
+              <MenuItem data-scroll-id="cert" onClick={onScrollTo}>
+                Courses
+              </MenuItem>
+            </MenuList>
+          </Menu>
+        </Box>
       </Flex>
 
       {/* <Flex

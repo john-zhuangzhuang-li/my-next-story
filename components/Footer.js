@@ -1,32 +1,65 @@
-import { Flex, IconButton, Icon, Heading, Link } from "@chakra-ui/react";
+import {
+  Flex,
+  Heading,
+  Text,
+  Grid,
+  chakra,
+  shouldForwardProp,
+  Box,
+  Container,
+  Button,
+  IconButton,
+  Stack,
+  Icon,
+  Circle,
+  Link,
+  Spacer,
+} from "@chakra-ui/react";
 import { RiGithubFill } from "react-icons/ri";
 
 const Footer = () => {
   return (
     <Flex
       as="footer"
-      gridColumn="center"
-      flexDirection="column"
+      gridColumn="1 / -1"
+      flexDir="column"
       justifyContent="center"
       alignItems="center"
-      rowGap={3}
-      pb={6}
+      minH="10rem"
+      rowGap={24}
+      p={12}
+      bg="gray.700"
+      // bgGradient="linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%)"
     >
-      <Link
-        href="https://github.com/john-zhuangzhuang-li/coffee-machines"
-        isExternal
+      <Flex
+        w="40rem"
+        minH="15rem"
+        flexDir="column"
+        bg="#fff"
+        borderRadius="xl"
+        justifyContent="center"
+        alignItems="center"
+        p={6}
       >
-        <IconButton
-          aria-label="View github repo"
-          colorScheme="gray"
-          variant="ghost"
-          size="lg"
-          icon={<Icon as={RiGithubFill} w={8} h={8} />}
-        />
-      </Link>
-      <Heading as="h6" size="xs">
-        Built by John Li, Seeker of jobs 🕵️‍♂️
-      </Heading>
+        <Button textTransform="uppercase">contact me</Button>
+      </Flex>
+      <Stack dir="column" spacing={3} align="center">
+        <Link
+          href="https://github.com/john-zhuangzhuang-li/coffee-machines"
+          isExternal
+        >
+          <IconButton
+            aria-label="View github repo"
+            colorScheme="gray"
+            variant="ghost"
+            size="lg"
+            icon={<Icon as={RiGithubFill} w={8} h={8} color="#fff" />}
+          />
+        </Link>
+        <Heading as="h6" size="sm" color="#fff">
+          Built by John Li, Seeker of jobs 🕵️‍♂️
+        </Heading>
+      </Stack>
     </Flex>
   );
 };

@@ -18,6 +18,8 @@ import certImg04 from "../public/cert-imgs/cert-04.webp";
 import { DiJavascript1, DiCss3 } from "react-icons/di";
 import { FaReact, FaCode } from "react-icons/fa";
 
+import useDisplayToggle from "../util/useDisplayToggle";
+
 const certImgList = {
   certImg01,
   certImg02,
@@ -53,10 +55,11 @@ const header = {
 };
 
 const CertificateCard = ({ id, title, gradient }) => {
+  const { toToggle, displayToggled, handleToToggle, handleToggleOnLeave } =
+    useDisplayToggle();
+
   return (
     <Flex
-      //   display="flex"
-      //   variants={item}
       as="li"
       flexDir="column"
       justifyContent="center"
@@ -66,26 +69,21 @@ const CertificateCard = ({ id, title, gradient }) => {
       mx={{ base: 0, sm: 6 }}
       my={{ base: 3, sm: 6 }}
       bg="#fff"
-      //   bgGradient="linear(#fff, #333) padding-box"
-      //   bg="linear-gradient(#fff, #fff) padding-box,
-      //   linear-gradient(to right, darkblue, darkorchid) border-box"
-      //   border="1px"
-      //   borderColor="gray.300"
       position="relative"
       borderRadius="2xl"
-      // boxShadow="base"
+      cursor={toToggle ? "default" : "pointer"}
+      onMouseLeave={handleToggleOnLeave}
+      onClick={handleToToggle}
       _before={{
         content: '""',
         position: "absolute",
         inset: "-5px",
-        // transform: "translateY(10px)",
-        // bg: "pink.500",
-        // bgGradient: "linear(to-l, #7928CA, #FF0080)",
         bgGradient: gradient,
         borderRadius: "2xl",
         filter: "blur(15px)",
         zIndex: "-1",
-        opacity: "0",
+        opacity: displayToggled ? "0.75" : "0",
+        transform: displayToggled ? "scale(1)" : "scale(0.8)",
         transition: "all 0.2s",
       }}
       _after={{
@@ -94,29 +92,20 @@ const CertificateCard = ({ id, title, gradient }) => {
         inset: "-1px",
         //   filter: "blur(10px)",
         zIndex: "-1",
-        opacity: "0.4",
-        bg: "gray.400",
+        opacity: displayToggled ? "0.75" : "0.4",
+        bg: displayToggled ? gradient : "gray.400",
         boxShadow: "lg",
         // bgGradient: "linear(to-l, #7928CA, #FF0080)",
         borderRadius: "2xl",
         transition: "all 0.2s",
       }}
-      //   _after={{
-      //     content: '""',
-      //     position: "absolute",
-      //     inset: "5px",
-      //     filter: "blur(10px)",
-      //     zIndex: "-1",
-      //     opacity: "1",
-      //     bg: "#fff",
-      //     borderRadius: "lg",
-      //   }}
       sx={{
-        "&:hover::before": { opacity: "0.75" },
+        "&:hover::before": { opacity: "0.75", transform: "scale(1)" },
         "&:hover::after": {
           opacity: "0.75",
           // bgGradient: "linear(to-l, #7928CA, #FF0080)",
           bgGradient: gradient,
+          // bg: gradient,
         },
       }}
     >

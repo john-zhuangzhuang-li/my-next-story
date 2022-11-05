@@ -7,7 +7,7 @@ import {
   useTransform,
 } from "framer-motion";
 
-const ProgressBox = chakra(motion.figure, {
+const ProgressLayer = chakra(motion.figure, {
   shouldForwardProp: (prop) =>
     isValidMotionProp(prop) || shouldForwardProp(prop),
 });
@@ -22,16 +22,29 @@ const ProgressBar = () => {
   // );
   // const scaleY = useTransform(scrollYProgress, [0, 0.1], ["1.5", "1"]);
 
+  const shrinkProgress = useTransform(scrollYProgress, [0, 1], [1, 0]);
+
   return (
-    <ProgressBox
-      style={{ scaleX: scrollYProgress }}
-      gridColumn="1 / -1"
-      gridRow="1 / span 1"
-      zIndex="150"
-      opacity="0.3"
-      transformOrigin="0%"
-      bgGradient={`linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)`}
-    ></ProgressBox>
+    <>
+      <ProgressLayer
+        style={{ scaleX: shrinkProgress }}
+        gridColumn="1 / -1"
+        gridRow="1 / span 1"
+        zIndex="125"
+        opacity="0.8"
+        transformOrigin="100%"
+        bg="whiteAlpha.500"
+      ></ProgressLayer>
+      <ProgressLayer
+        style={{ scaleX: scrollYProgress }}
+        gridColumn="1 / -1"
+        gridRow="1 / span 1"
+        zIndex="150"
+        opacity="0.3"
+        transformOrigin="0%"
+        bgGradient={`linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)`}
+      ></ProgressLayer>
+    </>
   );
 };
 
