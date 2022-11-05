@@ -54,6 +54,7 @@ const Home = () => {
       <PortfolioSection />
       <Box gridColumn="center" h={32} ref={certSpacerRef}></Box>
       <CertificatesSection />
+      <Box gridColumn="center" h={32}></Box>
     </Layout>
   );
 };
