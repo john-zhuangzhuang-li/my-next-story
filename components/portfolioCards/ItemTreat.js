@@ -112,8 +112,8 @@ const ItemTreat = () => {
       </Flex>
       {/* TITLE AREA */}
       <Flex flex="1" flexDir="column" rowGap={8} justify="center">
-        <Stack direction="column" rowGap={2}>
-          <Heading size="2xl" color="pink.500">
+        <Stack direction="column" spacing={2}>
+          <Heading size="xl" color="pink.500">
             Treat or treat
           </Heading>
           <Text fontSize="xl">Fictional store for delicious desserts</Text>

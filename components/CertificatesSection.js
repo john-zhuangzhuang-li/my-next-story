@@ -44,7 +44,7 @@ const CertificatesSection = () => {
       // my={12}
       //   bgGradient="linear(to-r, #fff, gray.100)"
     >
-      <Heading as="h3" size="xl">
+      <Heading as="h3" size="2xl">
         Courses learned
       </Heading>
       {/* <Grid gridTemplateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }} gap={6}> */}

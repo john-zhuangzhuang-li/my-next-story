@@ -112,8 +112,8 @@ const ItemMyStory = () => {
       </Flex>
       {/* TITLE AREA */}
       <Flex flex="1" flexDir="column" rowGap={8} justify="center">
-        <Stack direction="column" rowGap={2}>
-          <Heading size="2xl" color="purple.500">
+        <Stack direction="column" spacing={2}>
+          <Heading size="xl" color="purple.500">
             My story
           </Heading>
           <Text fontSize="xl">My latest portfolio page</Text>

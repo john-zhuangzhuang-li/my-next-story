@@ -15,10 +15,41 @@ import {
   Link,
   Spacer,
 } from "@chakra-ui/react";
+import { motion, isValidMotionProp } from "framer-motion";
 import { RiGithubFill } from "react-icons/ri";
 import { MdCheck } from "react-icons/md";
 
 import HeaderImgAlt from "./HeaderImgAlt";
+
+const FooterCard = chakra(motion.div, {
+  shouldForwardProp: (prop) =>
+    isValidMotionProp(prop) || shouldForwardProp(prop),
+});
+
+// const item = {
+//   visible: { opacity: 1 },
+//   hidden: { opacity: 0 },
+// };
+
+const card = {
+  visible: {
+    opacity: 1,
+    y: "-60px",
+    transition: {
+      when: "beforeChildren",
+      staggerChildren: 0.1,
+      // type: "tween",
+      // duration: 0.6,
+    },
+  },
+  hidden: {
+    opacity: 0,
+    y: "20px",
+    transition: {
+      when: "afterChildren",
+    },
+  },
+};
 
 const Footer = () => {
   return (
@@ -36,7 +67,12 @@ const Footer = () => {
       // backgroundSize="100px"
       // backgroundPosition="top 200px"
     >
-      <Flex
+      <FooterCard
+        display="flex"
+        initial="hidden"
+        whileInView="visible"
+        variants={card}
+        //  viewport={{ once: true }}
         w={{ base: "auto", lg: "50rem" }}
         minH="15rem"
         flexDir="column"
@@ -47,7 +83,7 @@ const Footer = () => {
         position="relative"
         p={12}
         rowGap={6}
-        transform="translateY(-60px)"
+        // transform="translateY(-60px)"
         _before={{
           content: '""',
           position: "absolute",
@@ -85,7 +121,7 @@ const Footer = () => {
         // }}
       >
         <HeaderImgAlt />
-        <Stack direction="column" spacing={3} align="center">
+        <Stack direction="column" spacing={3} alignItems="center">
           <Heading
             size="2xl"
             bgGradient={`linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)`}
@@ -98,6 +134,8 @@ const Footer = () => {
         <Stack
           direction={{ base: "column", md: "row" }}
           spacing={{ base: 1, md: 3 }}
+          // justify="center"
+          // align="center"
         >
           <Button
             leftIcon={<Icon as={MdCheck} />}
@@ -119,7 +157,7 @@ const Footer = () => {
         <Button colorScheme="purple" textTransform="uppercase" size="lg">
           contact me
         </Button>
-      </Flex>
+      </FooterCard>
       <Stack dir="column" spacing={3} align="center">
         <Link
           href="https://github.com/john-zhuangzhuang-li/coffee-machines"

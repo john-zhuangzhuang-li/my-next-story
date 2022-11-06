@@ -35,7 +35,7 @@ const SkillsSection = () => {
       rowGap={12}
       // my={12}
     >
-      <Heading as="h3" size="xl">
+      <Heading as="h3" size="2xl">
         Skills & Tools
       </Heading>
       <SkillList

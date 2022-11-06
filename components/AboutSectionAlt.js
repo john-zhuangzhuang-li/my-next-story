@@ -46,7 +46,7 @@ const AboutSectionAlt = () => {
       bg="gray.100"
       borderRadius="xl"
     >
-      <Heading size="xl">About me</Heading>
+      <Heading size="2xl">About me</Heading>
       <Grid
         gridTemplateColumns={{ base: "1fr", lg: "repeat(2, 1fr)" }}
         // gridTemplateColumns="repeat(2, 1fr)"
