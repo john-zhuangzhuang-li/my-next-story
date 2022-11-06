@@ -165,7 +165,7 @@ const Footer = () => {
         >
           <IconButton
             aria-label="View github repo"
-            colorScheme="gray"
+            colorScheme="whiteAlpha"
             variant="ghost"
             size="lg"
             icon={<Icon as={RiGithubFill} w={8} h={8} color="#fff" />}

@@ -18,7 +18,7 @@ const PortfolioSection = () => {
       gridColumn="center"
       alignItems="center"
       flexDir="column"
-      rowGap={24}
+      rowGap={{ base: 12, sm: 24 }}
       // my={24}
       //   bgGradient="linear(to-r, #fff, gray.100)"
     >
@@ -28,7 +28,7 @@ const PortfolioSection = () => {
       <Flex
         as="ul"
         flexDir="column"
-        rowGap={32}
+        rowGap={{ base: 24, sm: 44 }}
         listStyleType="none"
         sx={{
           "& > li": {

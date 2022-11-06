@@ -12,6 +12,7 @@ import {
   Icon,
   Circle,
   Link,
+  textDecoration,
 } from "@chakra-ui/react";
 import { motion, isValidMotionProp } from "framer-motion";
 
@@ -49,7 +50,7 @@ const Header = ({ onScrollTo }) => {
       gap={12}
       flexDir={{ base: "column-reverse", lg: "row" }}
       // mb={12}
-      // bg="purple.100"
+      // bg="gray.700"
     >
       {/* CONTENT BOX */}
       <Flex
@@ -78,15 +79,21 @@ const Header = ({ onScrollTo }) => {
             👋
           </EmojiWrapper>
         </Heading>
-        <Heading size="2xl">Front-End Developer</Heading>
-        <Text fontSize="xl">
+        <Heading size={{ base: "xl", sm: "2xl" }}>Front-End Developer</Heading>
+        <Text fontSize={{ base: "lg", sm: "xl" }}>
           I like to make things easy and enjoyable. That applies to building
           interfaces for web applications.
         </Text>
         {/* ACTIONS */}
-        <Stack direction="row" spacing={3} align="center">
+        <Stack
+          direction="row"
+          spacing={3}
+          align="center"
+          justify={{ base: "center", sm: "flex-start" }}
+        >
           <Button
             // rightIcon={<Icon as={FaChevronDown} />}
+            // flex="1"
             colorScheme="purple"
             variant="solid"
             textTransform="uppercase"
@@ -96,11 +103,14 @@ const Header = ({ onScrollTo }) => {
             learn more
           </Button>
           <Link
+            // display="flex"
+            // flex="1"
             href="https://github.com/john-zhuangzhuang-li/my-next-story"
             isExternal
           >
             <Button
               // rightIcon={<Icon as={TfiEmail} />}
+              // flex="1"
               colorScheme="purple"
               // variant="outline"
               variant="ghost"
