@@ -83,7 +83,8 @@ const ItemCupBottomless = () => {
     <PortfolioItem
       display="flex"
       overflow="hidden"
-      gap={16}
+      columnGap={16}
+      rowGap={9}
       initial="hidden"
       whileInView="visible"
       variants={portfolio}
@@ -120,7 +121,9 @@ const ItemCupBottomless = () => {
           <Heading size="xl" color="teal.500">
             Cup Bottomless
           </Heading>
-          <Text fontSize="xl">Photo gallery of stylish coffee makers</Text>
+          <Text fontSize={{ base: "md", sm: "xl" }}>
+            Photo gallery of stylish coffee makers
+          </Text>
         </Stack>
 
         {/* LIST COMPONENT */}
@@ -135,7 +138,9 @@ const ItemCupBottomless = () => {
             <Circle size={10} bg="teal.500">
               <Icon as={FaCoffee} color="#fff" w={5} h={5} />
             </Circle>
-            <Text fontSize="xl">Responsive design with color modes</Text>
+            <Text fontSize={{ base: "md", sm: "xl" }}>
+              Responsive design with color modes
+            </Text>
           </FeatureItem>
           <FeatureItem
             display="flex"
@@ -147,7 +152,7 @@ const ItemCupBottomless = () => {
             <Circle size={10} bg="teal.500">
               <Icon as={FaUser} color="#fff" w={5} h={5} />
             </Circle>
-            <Text fontSize="xl">
+            <Text fontSize={{ base: "md", sm: "xl" }}>
               User authentication and upload feature with image optimization
             </Text>
           </FeatureItem>
@@ -161,7 +166,7 @@ const ItemCupBottomless = () => {
             <Circle size={10} bg="teal.500">
               <Icon as={MdImage} color="#fff" w={5} h={5} />
             </Circle>
-            <Text fontSize="xl">
+            <Text fontSize={{ base: "md", sm: "xl" }}>
               Initial page loaded by static site generator, and load more
               content as you browse
             </Text>
@@ -176,7 +181,7 @@ const ItemCupBottomless = () => {
             <Circle size={10} bg="teal.500">
               <Icon as={FaCode} color="#fff" w={5} h={5} />
             </Circle>
-            <Text fontSize="xl">
+            <Text fontSize={{ base: "md", sm: "xl" }}>
               Built with Next.js, TypeScript, Chakra UI, and Firebase
             </Text>
           </FeatureItem>

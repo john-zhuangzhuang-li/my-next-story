@@ -45,16 +45,32 @@ const Home = () => {
   return (
     <Layout onScrollTo={handleScrollTo}>
       <Header onScrollTo={handleScrollTo} />
-      <Box gridColumn="center" h={24} ref={aboutSpacerRef}></Box>
+      <Box
+        gridColumn="center"
+        h={{ base: 12, sm: 24 }}
+        ref={aboutSpacerRef}
+      ></Box>
       <AboutSectionAlt />
       {/* <AboutSection /> */}
-      <Box gridColumn="center" h={32} ref={skillsSpacerRef}></Box>
+      <Box
+        gridColumn="center"
+        h={{ base: 16, sm: 32 }}
+        ref={skillsSpacerRef}
+      ></Box>
       <SkillsSection />
-      <Box gridColumn="center" h={32} ref={portSpacerRef}></Box>
+      <Box
+        gridColumn="center"
+        h={{ base: 16, sm: 32 }}
+        ref={portSpacerRef}
+      ></Box>
       <PortfolioSection />
-      <Box gridColumn="center" h={32} ref={certSpacerRef}></Box>
+      <Box
+        gridColumn="center"
+        h={{ base: 16, sm: 32 }}
+        ref={certSpacerRef}
+      ></Box>
       <CertificatesSection />
-      <Box gridColumn="center" h={32}></Box>
+      <Box gridColumn="center" h={{ base: 16, sm: 32 }}></Box>
     </Layout>
   );
 };

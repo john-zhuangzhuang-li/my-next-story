@@ -80,7 +80,7 @@ const Header = ({ onScrollTo }) => {
           </EmojiWrapper>
         </Heading>
         <Heading size={{ base: "xl", sm: "2xl" }}>Front-End Developer</Heading>
-        <Text fontSize={{ base: "lg", sm: "xl" }}>
+        <Text fontSize={{ base: "md", sm: "xl" }}>
           I like to make things easy and enjoyable. That applies to building
           interfaces for web applications.
         </Text>
@@ -89,7 +89,7 @@ const Header = ({ onScrollTo }) => {
           direction="row"
           spacing={3}
           align="center"
-          justify={{ base: "center", sm: "flex-start" }}
+          // justify={{ base: "center", sm: "flex-start" }}
         >
           <Button
             // rightIcon={<Icon as={FaChevronDown} />}

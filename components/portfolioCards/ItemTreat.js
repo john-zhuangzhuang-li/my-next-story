@@ -79,7 +79,8 @@ const ItemTreat = () => {
     <PortfolioItem
       display="flex"
       overflow="hidden"
-      gap={16}
+      columnGap={16}
+      rowGap={9}
       initial="hidden"
       whileInView="visible"
       variants={portfolio}
@@ -116,7 +117,9 @@ const ItemTreat = () => {
           <Heading size="xl" color="pink.500">
             Treat or treat
           </Heading>
-          <Text fontSize="xl">Fictional store for delicious desserts</Text>
+          <Text fontSize={{ base: "md", sm: "xl" }}>
+            Fictional store for delicious desserts
+          </Text>
         </Stack>
 
         {/* LIST COMPONENT */}
@@ -131,7 +134,7 @@ const ItemTreat = () => {
             <Circle size={10} bg="pink.500">
               <Icon as={MdCake} color="#fff" w={5} h={5} />
             </Circle>
-            <Text fontSize="xl">Responsive design</Text>
+            <Text fontSize={{ base: "md", sm: "xl" }}>Responsive design</Text>
           </FeatureItem>
           <FeatureItem
             display="flex"
@@ -143,7 +146,9 @@ const ItemTreat = () => {
             <Circle size={10} bg="pink.500">
               <Icon as={FaSearch} color="#fff" w={5} h={5} />
             </Circle>
-            <Text fontSize="xl">Search, filter, and sorting of products</Text>
+            <Text fontSize={{ base: "md", sm: "xl" }}>
+              Search, filter, and sorting of products
+            </Text>
           </FeatureItem>
           <FeatureItem
             display="flex"
@@ -155,7 +160,7 @@ const ItemTreat = () => {
             <Circle size={10} bg="pink.500">
               <Icon as={MdShoppingCart} color="#fff" w={5} h={5} />
             </Circle>
-            <Text fontSize="xl">
+            <Text fontSize={{ base: "md", sm: "xl" }}>
               Cart integrated as a side drawer for convenience
             </Text>
           </FeatureItem>
@@ -169,7 +174,7 @@ const ItemTreat = () => {
             <Circle size={10} bg="pink.500">
               <Icon as={FaCode} color="#fff" w={5} h={5} />
             </Circle>
-            <Text fontSize="xl">
+            <Text fontSize={{ base: "md", sm: "xl" }}>
               Built with React, JavaScript, MUI, React router, and Firebase
             </Text>
           </FeatureItem>

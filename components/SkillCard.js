@@ -68,7 +68,7 @@ const SkillCard = ({ iconSrc: src, title }) => {
         h={{ base: "4rem", sm: "5rem" }}
         alt="Skill icon"
       />
-      <Text>{title}</Text>
+      <Text fontSize={{ base: "sm", sm: "md" }}>{title}</Text>
     </SkillItem>
   );
 };

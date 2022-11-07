@@ -41,10 +41,11 @@ const CertificatesSection = () => {
       flexDir="column"
       alignItems="center"
       rowGap={12}
+      // bg="gray.100"
       // my={12}
       //   bgGradient="linear(to-r, #fff, gray.100)"
     >
-      <Heading as="h3" size="2xl">
+      <Heading as="h3" size={{ base: "xl", sm: "xl" }}>
         Courses learned
       </Heading>
       {/* <Grid gridTemplateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }} gap={6}> */}

@@ -22,7 +22,7 @@ const PortfolioSection = () => {
       // my={24}
       //   bgGradient="linear(to-r, #fff, gray.100)"
     >
-      <Heading as="h3" size="2xl">
+      <Heading as="h3" size={{ base: "xl", sm: "xl" }}>
         Practice projects
       </Heading>
       <Flex

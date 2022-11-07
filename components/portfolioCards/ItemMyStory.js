@@ -79,7 +79,8 @@ const ItemMyStory = () => {
     <PortfolioItem
       display="flex"
       overflow="hidden"
-      gap={16}
+      columnGap={16}
+      rowGap={9}
       initial="hidden"
       whileInView="visible"
       variants={portfolio}
@@ -116,7 +117,9 @@ const ItemMyStory = () => {
           <Heading size="xl" color="purple.500">
             My story
           </Heading>
-          <Text fontSize="xl">My latest portfolio page</Text>
+          <Text fontSize={{ base: "md", sm: "xl" }}>
+            My latest portfolio page
+          </Text>
         </Stack>
 
         {/* LIST COMPONENT */}
@@ -131,7 +134,7 @@ const ItemMyStory = () => {
             <Circle size={10} bg="purple.500">
               <Icon as={FaGlasses} color="#fff" w={5} h={5} />
             </Circle>
-            <Text fontSize="xl">Responsive design</Text>
+            <Text fontSize={{ base: "md", sm: "xl" }}>Responsive design</Text>
           </FeatureItem>
           <FeatureItem
             display="flex"
@@ -143,7 +146,7 @@ const ItemMyStory = () => {
             <Circle size={10} bg="purple.500">
               <Icon as={MdUpdate} color="#fff" w={5} h={5} />
             </Circle>
-            <Text fontSize="xl">
+            <Text fontSize={{ base: "md", sm: "xl" }}>
               Upgraded from a vanilla prototype and an alternative retro version
             </Text>
           </FeatureItem>
@@ -157,7 +160,7 @@ const ItemMyStory = () => {
             <Circle size={10} bg="purple.500">
               <Icon as={MdAnimation} color="#fff" w={5} h={5} />
             </Circle>
-            <Text fontSize="xl">
+            <Text fontSize={{ base: "md", sm: "xl" }}>
               Coordinated, layered, and scroll-related animation for components
             </Text>
           </FeatureItem>
@@ -171,7 +174,7 @@ const ItemMyStory = () => {
             <Circle size={10} bg="purple.500">
               <Icon as={FaCode} color="#fff" w={5} h={5} />
             </Circle>
-            <Text fontSize="xl">
+            <Text fontSize={{ base: "md", sm: "xl" }}>
               Built with JavaScript, Next.js, Chakra UI, and Framer motion
             </Text>
           </FeatureItem>

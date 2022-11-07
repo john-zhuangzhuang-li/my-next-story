@@ -69,6 +69,7 @@ const CertificateCard = ({ id, title, gradient }) => {
       mx={{ base: 0, sm: 6 }}
       my={{ base: 3, sm: 6 }}
       bg="#fff"
+      // bg="gray.500"
       position="relative"
       borderRadius="2xl"
       cursor={toToggle ? "default" : "pointer"}
@@ -118,11 +119,15 @@ const CertificateCard = ({ id, title, gradient }) => {
         alignSelf="flex-start"
         overflow="hidden"
       >
-        <Circle size={12} bgGradient={gradient} ml={3}>
+        <Circle
+          size={{ base: 10, sm: 12 }}
+          bgGradient={gradient}
+          ml={{ base: 0, sm: 3 }}
+        >
           <Icon as={certIconList[id]} w={6} h={6} color="#fff" />
         </Circle>
         <Heading
-          size="lg"
+          size={{ base: "md", sm: "lg" }}
           ml={3}
           noOfLines={1}
           // bgGradient="linear(to-l, #7928CA, #FF0080)"
