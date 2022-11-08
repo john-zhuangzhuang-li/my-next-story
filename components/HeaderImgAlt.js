@@ -39,6 +39,14 @@ const wrapper = {
       when: "afterChildren",
     },
   },
+  // hover: {
+  //   opacity: 1,
+  //   y: "0px",
+  //   transition: {
+  //     when: "beforeChildren",
+  //     staggerChildren: 0,
+  //   },
+  // },
 };
 
 const image = {
@@ -50,6 +58,10 @@ const image = {
     x: "0px",
     y: "0px",
   },
+  // hover: {
+  //   x: "-5px",
+  //   y: "-5px",
+  // },
 };
 
 const bg = {
@@ -61,6 +73,10 @@ const bg = {
     x: "0px",
     y: "0px",
   },
+  // hover: {
+  //   x: "5px",
+  //   y: "5px",
+  // },
 };
 
 const HeaderImgAlt = () => {
@@ -68,6 +84,7 @@ const HeaderImgAlt = () => {
     <Grid
       as={motion.div}
       variants={wrapper}
+      // whileHover="hover"
       mb={6}
       justifyContent="center"
       alignContent="center"

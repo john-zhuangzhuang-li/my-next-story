@@ -2,6 +2,23 @@ import { useRef } from "react";
 
 import { Box } from "@chakra-ui/react";
 
+import {
+  Flex,
+  Heading,
+  Text,
+  Grid,
+  chakra,
+  shouldForwardProp,
+  Container,
+  Button,
+  Stack,
+  Icon,
+  Circle,
+  Link,
+  Progress,
+  Image,
+} from "@chakra-ui/react";
+
 import Layout from "../components/Layout";
 import Header from "../components/Header";
 import AboutSectionAlt from "../components/AboutSectionAlt";
@@ -70,6 +87,22 @@ const Home = () => {
         ref={certSpacerRef}
       ></Box>
       <CertificatesSection />
+      {/* TEST AREA */}
+
+      {/* <Flex>
+        <Box>
+          <Image src="/port-imgs/cup-01.webp" />
+        </Box>
+        <Box>
+          <Image src="/port-imgs/cup-01.webp" />
+        </Box>
+        <Box>
+          <Image src="/port-imgs/cup-01.webp" />
+        </Box>
+      </Flex> */}
+
+      {/* TEST AREA  src: "/skill-icons/html-5.svg"*/}
+
       <Box gridColumn="center" h={{ base: 16, sm: 32 }}></Box>
     </Layout>
   );

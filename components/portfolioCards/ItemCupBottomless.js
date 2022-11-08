@@ -16,7 +16,7 @@ import {
 import { motion, isValidMotionProp } from "framer-motion";
 
 import NextImage from "next/image";
-import testImg from "../../public/port-imgs/test-02.webp";
+import testImg from "../../public/port-imgs/cup-01.webp";
 
 import {
   RiCodeSSlashFill,

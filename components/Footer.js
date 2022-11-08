@@ -151,7 +151,7 @@ const Footer = () => {
             cursor="default"
             colorScheme="purple"
           >
-            Work for free as intern
+            Start as intern
           </Button>
         </Stack>
         <Button colorScheme="purple" textTransform="uppercase" size="lg">
@@ -160,7 +160,7 @@ const Footer = () => {
       </FooterCard>
       <Stack dir="column" spacing={3} align="center">
         <Link
-          href="https://github.com/john-zhuangzhuang-li/coffee-machines"
+          href="https://github.com/john-zhuangzhuang-li/my-next-story"
           isExternal
         >
           <IconButton
