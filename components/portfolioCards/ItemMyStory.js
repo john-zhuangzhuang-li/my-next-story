@@ -173,7 +173,7 @@ const ItemMyStory = () => {
         {/* ACTION AREA */}
         <Stack direction="row" spacing={3} align="center">
           <Link
-            href="https://treat-or-treat.web.app"
+            href="https://john-li-frontend-dev.vercel.app/"
             _hover={{ textDecoration: "none" }}
             isExternal
           >
