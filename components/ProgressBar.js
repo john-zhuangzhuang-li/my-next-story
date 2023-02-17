@@ -3,7 +3,6 @@ import {
   motion,
   isValidMotionProp,
   useScroll,
-  useSpring,
   useTransform,
 } from "framer-motion";
 

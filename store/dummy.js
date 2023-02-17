@@ -1,3 +1,8 @@
+export const loopTextData = {
+  top: `html{box-sizing:border-box;scroll-behavior:smooth;font-size:62.5%}body{font-family:var(--font-primary);}`,
+  bottom: `html{box-sizing:border-box;scroll-behavior:smooth;font-size:62.5%}body{font-family:var(--font-primary);}`,
+};
+
 export const certData = [
   {
     id: "certImg01",
@@ -96,3 +101,25 @@ export const skillIconData = [
     title: "Chakra UI",
   },
 ];
+
+export const dummyUser = {
+  badgeCounts: {
+    bronze: 27,
+    silver: 3,
+    gold: 2,
+  },
+  reputation: 6371,
+};
+
+export const dummyTags = [
+  { id: "so-tag-1", title: "reactjs", score: 149, posts: 205, badge: "bronze" },
+  { id: "so-tag-2", title: "css", score: 112, posts: 142, badge: "bronze" },
+  { id: "so-tag-3", title: "javascript", score: 87, posts: 108 },
+];
+
+// Public api see https://api.stackexchange.com/docs/ for docs
+export const soApiBase = "https://api.stackexchange.com";
+export const soApiUser =
+  "/2.3/users/20436957?order=desc&sort=reputation&site=stackoverflow";
+export const soApiTags =
+  "/2.3/users/20436957/top-tags?page=1&pagesize=3&site=stackoverflow";

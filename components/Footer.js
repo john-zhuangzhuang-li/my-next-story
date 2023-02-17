@@ -2,18 +2,14 @@ import {
   Flex,
   Heading,
   Text,
-  Grid,
   chakra,
   shouldForwardProp,
   Box,
-  Container,
   Button,
   IconButton,
   Stack,
   Icon,
-  Circle,
   Link,
-  Spacer,
 } from "@chakra-ui/react";
 import { motion, isValidMotionProp } from "framer-motion";
 import { RiGithubFill } from "react-icons/ri";
@@ -21,15 +17,15 @@ import { MdCheck } from "react-icons/md";
 
 import HeaderImgAlt from "./HeaderImgAlt";
 
-const FooterCard = chakra(motion.div, {
+const BtnBorder = chakra(motion.figure, {
   shouldForwardProp: (prop) =>
     isValidMotionProp(prop) || shouldForwardProp(prop),
 });
 
-// const item = {
-//   visible: { opacity: 1 },
-//   hidden: { opacity: 0 },
-// };
+const FooterCard = chakra(motion.div, {
+  shouldForwardProp: (prop) =>
+    isValidMotionProp(prop) || shouldForwardProp(prop),
+});
 
 const card = {
   visible: {
@@ -38,8 +34,6 @@ const card = {
     transition: {
       when: "beforeChildren",
       staggerChildren: 0.1,
-      // type: "tween",
-      // duration: 0.6,
     },
   },
   hidden: {
@@ -51,7 +45,7 @@ const card = {
   },
 };
 
-const Footer = () => {
+const Footer = ({ onContactModalOpen }) => {
   return (
     <Flex
       as="footer"
@@ -59,13 +53,8 @@ const Footer = () => {
       flexDir="column"
       justifyContent="center"
       alignItems="center"
-      // rowGap={3}
       pb={12}
-      // bg="gray.700"
-      // bgGradient="linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%)"
       bgGradient="linear-gradient(to bottom, #fff 0%, #fff 15%, gray.700 15.1%, gray.700 100%)"
-      // backgroundSize="100px"
-      // backgroundPosition="top 200px"
     >
       <FooterCard
         display="flex"
@@ -73,7 +62,7 @@ const Footer = () => {
         whileInView="visible"
         variants={card}
         //  viewport={{ once: true }}
-        w={{ base: "auto", lg: "50rem" }}
+        w={{ base: "auto", sm: "25rem", md: "35rem", lg: "50rem" }}
         minH="15rem"
         flexDir="column"
         bg="#fff"
@@ -81,22 +70,16 @@ const Footer = () => {
         justifyContent="center"
         alignItems="center"
         position="relative"
-        p={12}
+        py={12}
+        px={{ base: 3, lg: 12 }}
         rowGap={6}
         // transform="translateY(-60px)"
         _before={{
           content: '""',
           position: "absolute",
           inset: "10px -5px -12px",
-          // bg: "pink.500",
-
-          // LIKELY TO USE
-          // bgGradient: `linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)`,
-          // bgGradient: `linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%)`,
           bgGradient: `linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)`,
-
           transform: "scale(1)",
-
           borderRadius: "9xl",
           filter: "blur(18px)",
           zIndex: "-1",
@@ -108,34 +91,37 @@ const Footer = () => {
           position: "absolute",
           inset: "0",
           zIndex: "-1",
-          // bg: "gray.700",
           bg: "#fff",
           border: "1px",
           borderColor: "gray.200",
           boxShadow: "base",
-          // borderRadius: "lg",
           borderRadius: "2xl",
         }}
-        // sx={{
-        //   "&:hover::before": { opacity: "1", transform: "scale(1)" },
-        // }}
       >
         <HeaderImgAlt />
-        <Stack direction="column" spacing={3} alignItems="center">
+        <Stack direction="column" spacing={6} alignItems="center">
           <Heading
             size="2xl"
             bgGradient={`linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)`}
             bgClip="text"
+            lineHeight="1.3"
           >
-            Hire me now
+            Ready to start
           </Heading>
-          <Text size="lg">Please hire me right now</Text>
+          <Box maxW={{ base: "17.5rem", sm: "25rem", lg: "38rem" }} px={6}>
+            <Text fontSize={{ base: "sm", sm: "md" }} textStyle="content">
+              {`...and contribute to your team's success!`}
+            </Text>
+            {/* <Text fontSize={{ base: "sm", sm: "md" }} textStyle="content">
+              I am ready to showcase my skills and contribute to your team's
+              success! Please don't hesitate to reach out if you're interested
+              in learning more about what I can offer.
+            </Text> */}
+          </Box>
         </Stack>
         <Stack
           direction={{ base: "column", md: "row" }}
           spacing={{ base: 1, md: 3 }}
-          // justify="center"
-          // align="center"
         >
           <Button
             leftIcon={<Icon as={MdCheck} />}
@@ -151,12 +137,33 @@ const Footer = () => {
             cursor="default"
             colorScheme="purple"
           >
-            Start as intern
+            Adaptable and quick learner
           </Button>
         </Stack>
-        <Button colorScheme="purple" textTransform="uppercase" size="lg">
-          contact me
-        </Button>
+        <Box position="relative" overflow="hidden" borderRadius="xl">
+          <BtnBorder
+            position="absolute"
+            bgGradient={`conic-gradient(from 0turn, #4158D0 10%, #C850C0 35%, #FFCC70 65%, #4158D0 90%)`}
+            inset="0"
+            initial={{ rotate: 0, scale: 150 }}
+            animate={{ rotate: 360, scale: 150 }}
+            transition={{
+              repeat: Infinity,
+              duration: 1.5,
+              type: "tween",
+              bounce: 0,
+              ease: "linear",
+            }}
+          ></BtnBorder>
+          <Button
+            m="6px"
+            textTransform="uppercase"
+            size="lg"
+            onClick={onContactModalOpen}
+          >
+            Say Hello
+          </Button>
+        </Box>
       </FooterCard>
       <Stack dir="column" spacing={3} align="center">
         <Link
@@ -172,7 +179,7 @@ const Footer = () => {
           />
         </Link>
         <Heading as="h6" size="sm" color="#fff">
-          Built by John Li, Seeker of jobs 🕵️‍♂️
+          {`Built by John Li, Seeker of jobs 🕵️‍♂️`}
         </Heading>
       </Stack>
     </Flex>

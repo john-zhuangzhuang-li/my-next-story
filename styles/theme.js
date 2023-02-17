@@ -4,10 +4,15 @@ const theme = extendTheme({
   fonts: {
     heading: `"InterVariable", sans-serif`,
     body: `"InterVariable", sans-serif`,
+    mono: `"RobotoMonoVariable", monospace`,
   },
   textStyles: {
     content: {
-      lineHeight: "180%",
+      lineHeight: "170%",
+    },
+    code: {
+      lineHeight: "100%",
+      fontFamily: `"RobotoMonoVariable", monospace`,
     },
   },
   semanticTokens: {

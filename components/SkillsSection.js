@@ -33,7 +33,6 @@ const SkillsSection = () => {
       alignItems="center"
       flexDir="column"
       rowGap={12}
-      // my={12}
     >
       <Heading as="h3" size={{ base: "xl", sm: "xl" }}>
         Skills & Tools
@@ -42,7 +41,6 @@ const SkillsSection = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        // whileHover="hover"
         variants={list}
         listStyleType="none"
         display="flex"

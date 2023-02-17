@@ -1,23 +1,5 @@
 import { useRef } from "react";
-
-import { Box } from "@chakra-ui/react";
-
-import {
-  Flex,
-  Heading,
-  Text,
-  Grid,
-  chakra,
-  shouldForwardProp,
-  Container,
-  Button,
-  Stack,
-  Icon,
-  Circle,
-  Link,
-  Progress,
-  Image,
-} from "@chakra-ui/react";
+import { Box, useDisclosure } from "@chakra-ui/react";
 
 import Layout from "../components/Layout";
 import Header from "../components/Header";
@@ -25,24 +7,13 @@ import AboutSectionAlt from "../components/AboutSectionAlt";
 import PortfolioSection from "../components/PortfolioSection";
 import SkillsSection from "../components/SkillsSection";
 import CertificatesSection from "../components/CertificatesSection";
+import ContactModal from "../components/ContactModal";
 
-const Home = () => {
-  const aboutSpacerRef = useRef(null);
-  const skillsSpacerRef = useRef(null);
-  const portSpacerRef = useRef(null);
-  const certSpacerRef = useRef(null);
+import { soApiBase, soApiUser, soApiTags } from "../store/dummy";
 
-  const sectionRefs = {
-    about: aboutSpacerRef,
-    skills: skillsSpacerRef,
-    port: portSpacerRef,
-    cert: certSpacerRef,
-  };
-
-  // const handleScrollTo = () => {
-  //   if (!aboutSpacerRef.current) return;
-  //   aboutSpacerRef.current.scrollIntoView({ behavior: "smooth" });
-  // };
+const Home = ({ updatedUser, updatedTags, updated }) => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const sectionsRef = useRef({});
 
   const handleScrollTo = (e) => {
     const { scrollId } = e.currentTarget.dataset;
@@ -55,57 +26,113 @@ const Home = () => {
       });
       return;
     }
-    if (!sectionRefs[scrollId].current) return;
-    sectionRefs[scrollId].current.scrollIntoView({ behavior: "smooth" });
+    if (!sectionsRef.current[scrollId]) return;
+    sectionsRef.current[scrollId].scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <Layout onScrollTo={handleScrollTo}>
-      <Header onScrollTo={handleScrollTo} />
-      <Box
-        gridColumn="center"
-        h={{ base: 12, sm: 24 }}
-        ref={aboutSpacerRef}
-      ></Box>
-      <AboutSectionAlt />
-      {/* <AboutSection /> */}
-      <Box
-        gridColumn="center"
-        h={{ base: 16, sm: 32 }}
-        ref={skillsSpacerRef}
-      ></Box>
-      <SkillsSection />
-      <Box
-        gridColumn="center"
-        h={{ base: 16, sm: 32 }}
-        ref={portSpacerRef}
-      ></Box>
-      <PortfolioSection />
-      <Box
-        gridColumn="center"
-        h={{ base: 16, sm: 32 }}
-        ref={certSpacerRef}
-      ></Box>
-      <CertificatesSection />
-      {/* TEST AREA */}
-
-      {/* <Flex>
-        <Box>
-          <Image src="/port-imgs/cup-01.webp" />
-        </Box>
-        <Box>
-          <Image src="/port-imgs/cup-01.webp" />
-        </Box>
-        <Box>
-          <Image src="/port-imgs/cup-01.webp" />
-        </Box>
-      </Flex> */}
-
-      {/* TEST AREA  src: "/skill-icons/html-5.svg"*/}
-
-      <Box gridColumn="center" h={{ base: 16, sm: 32 }}></Box>
-    </Layout>
+    <>
+      <Layout onScrollTo={handleScrollTo} onContactModalOpen={onOpen}>
+        <Header onScrollTo={handleScrollTo} onContactModalOpen={onOpen} />
+        <Box
+          gridColumn="center"
+          h={{ base: 12, sm: 16 }}
+          ref={(el) => (sectionsRef.current["about"] = el)}
+        ></Box>
+        <AboutSectionAlt {...{ updatedUser, updatedTags, updated }} />
+        <Box
+          gridColumn="center"
+          h={{ base: 16, sm: 32 }}
+          ref={(el) => (sectionsRef.current["skills"] = el)}
+        ></Box>
+        <SkillsSection />
+        <Box
+          gridColumn="center"
+          h={{ base: 16, sm: 32 }}
+          ref={(el) => (sectionsRef.current["port"] = el)}
+        ></Box>
+        <PortfolioSection />
+        <Box
+          gridColumn="center"
+          h={{ base: 16, sm: 32 }}
+          ref={(el) => (sectionsRef.current["cert"] = el)}
+        ></Box>
+        <CertificatesSection />
+        <Box gridColumn="center" h={{ base: 16, sm: 32 }}></Box>
+      </Layout>
+      <ContactModal onClose={onClose} isOpen={isOpen} />
+    </>
   );
 };
 
 export default Home;
+
+export const getStaticProps = async () => {
+  // For testing without data fetch
+  // return {
+  //   props: {
+  //     updatedUser: null,
+  //     updatedTags: null,
+  //     updated: null,
+  //   },
+  // };
+
+  const resUser = await fetch(`${soApiBase}${soApiUser}`);
+  if (!resUser.ok)
+    return {
+      props: {
+        updatedUser: null,
+        updatedTags: null,
+        updated: null,
+      },
+      revalidate: 86400,
+    };
+  const userData = await resUser.json();
+  const updated = new Date().toLocaleDateString("en-CA");
+  const { items: userItems } = userData;
+  const { badge_counts: badgeCounts, reputation } = userItems[0];
+  const resTags = await fetch(`${soApiBase}${soApiTags}`);
+  if (!resTags.ok)
+    return {
+      props: {
+        updatedUser: {
+          badgeCounts,
+          reputation,
+        },
+        updatedTags: null,
+        updated,
+      },
+      revalidate: 86400,
+    };
+  const tagsData = await resTags.json();
+  const { items: tagItems } = tagsData;
+  const updatedTags = tagItems.map((item, index) => {
+    const {
+      answer_count: answerCount,
+      answer_score: answerScore,
+      question_count: questionCount,
+      question_score: questionScore,
+      tag_name: title,
+    } = item;
+    const score = +answerScore + +questionScore;
+    const posts = +answerCount + +questionCount;
+    return {
+      id: `so-tag-${index + 1}`,
+      title,
+      score,
+      posts,
+      badge: score > 100 ? "bronze" : null,
+    };
+  });
+  return {
+    props: {
+      updatedUser: {
+        badgeCounts,
+        reputation,
+      },
+      updatedTags,
+      updated,
+    },
+    revalidate: 86400,
+  };
+};

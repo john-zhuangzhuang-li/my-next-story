@@ -2,11 +2,8 @@ import {
   Flex,
   Heading,
   Text,
-  Grid,
   chakra,
   shouldForwardProp,
-  Box,
-  Container,
   Button,
   Stack,
   Icon,
@@ -24,8 +21,6 @@ import { FaCode, FaSearch } from "react-icons/fa";
 import { MdCake, MdShoppingCart } from "react-icons/md";
 
 // CURRENT SCR SHOT SIZE: 1800 X 1200
-
-// CONSIDER STILL INCLUDE CHIPS IN - TEXT ONLY?
 
 const PortfolioItem = chakra(motion.li, {
   shouldForwardProp: (prop) =>
@@ -86,20 +81,16 @@ const ItemTreat = () => {
       variants={portfolio}
       viewport={{ once: true }}
       minH="30rem"
-      // bg="purple.100"
     >
       {/* IMAGE AREA */}
       <Flex
         width={{ base: "auto", lg: "55%" }}
-        // bg="pink.300"
         bgGradient="linear-gradient(104.9deg,  rgba(255,95,162,1) 2.3%, rgba(254,201,154,1) 92.7% )"
         justifyContent="center"
         alignItems="center"
         p={{ base: 3, md: 9 }}
         borderRadius="lg"
         overflow="hidden"
-        // transition="padding 0.2s ease-in-out"
-        // _hover={{ p: 3 }}
       >
         {/* IMAGE WRAP */}
         <PortfolioImage
@@ -121,7 +112,6 @@ const ItemTreat = () => {
             Fictional store for delicious desserts
           </Text>
         </Stack>
-
         {/* LIST COMPONENT */}
         <Stack as="ul" direction="column" rowGap={3} listStyleType="none">
           <FeatureItem
@@ -179,10 +169,13 @@ const ItemTreat = () => {
             </Text>
           </FeatureItem>
         </Stack>
-
         {/* ACTION AREA */}
         <Stack direction="row" spacing={3} align="center">
-          <Link href="https://treat-or-treat.web.app" isExternal>
+          <Link
+            href="https://treat-or-treat.web.app"
+            isExternal
+            _hover={{ textDecoration: "none" }}
+          >
             <Button
               rightIcon={<Icon as={RiExternalLinkLine} />}
               colorScheme="pink"
@@ -195,6 +188,7 @@ const ItemTreat = () => {
           <Link
             href="https://github.com/john-zhuangzhuang-li/treat-or-treat"
             isExternal
+            _hover={{ textDecoration: "none" }}
           >
             <Button
               rightIcon={<Icon as={SiGithub} />}

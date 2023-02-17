@@ -63,7 +63,7 @@ const HeaderImg = () => {
       <FigureBox
         display="flex"
         initial="hidden"
-        animate="visible"
+        whileInView="visible"
         variants={background}
         w={{ base: "12rem", lg: "15rem" }}
         h={{ base: "16rem", lg: "17.5rem" }}

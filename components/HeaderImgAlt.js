@@ -1,21 +1,5 @@
-import {
-  Flex,
-  Heading,
-  Text,
-  Grid,
-  chakra,
-  shouldForwardProp,
-  Box,
-  Container,
-  Button,
-  IconButton,
-  Stack,
-  Icon,
-  Circle,
-  Link,
-  Spacer,
-} from "@chakra-ui/react";
-import { motion, isValidMotionProp } from "framer-motion";
+import { Flex, Grid } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 
 import NextImage from "next/image";
 
@@ -28,8 +12,6 @@ const wrapper = {
     transition: {
       when: "beforeChildren",
       staggerChildren: 0,
-      // type: "tween",
-      // duration: 0.6,
     },
   },
   hidden: {

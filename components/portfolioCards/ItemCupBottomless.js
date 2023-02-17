@@ -2,11 +2,8 @@ import {
   Flex,
   Heading,
   Text,
-  Grid,
   chakra,
   shouldForwardProp,
-  Box,
-  Container,
   Button,
   Stack,
   Icon,
@@ -18,15 +15,9 @@ import { motion, isValidMotionProp } from "framer-motion";
 import NextImage from "next/image";
 import testImg from "../../public/port-imgs/cup-01.webp";
 
-import {
-  RiCodeSSlashFill,
-  RiExternalLinkLine,
-  RiGithubFill,
-  RiUser5Line,
-} from "react-icons/ri";
+import { RiExternalLinkLine } from "react-icons/ri";
 import { SiGithub } from "react-icons/si";
 import { FaCoffee, FaUser, FaCode } from "react-icons/fa";
-import { BiUserCheck, BiImage, BiImageAdd } from "react-icons/bi";
 import { MdImage } from "react-icons/md";
 
 // CURRENT SCR SHOT SIZE: 1800 X 1200
@@ -90,7 +81,6 @@ const ItemCupBottomless = () => {
       variants={portfolio}
       viewport={{ once: true }}
       minH="30rem"
-      // bg="purple.100"
     >
       {/* IMAGE AREA */}
       <Flex
@@ -102,8 +92,6 @@ const ItemCupBottomless = () => {
         p={{ base: 3, md: 9 }}
         borderRadius="lg"
         overflow="hidden"
-        // transition="padding 0.2s ease-in-out"
-        // _hover={{ p: 3 }}
       >
         {/* IMAGE BOX */}
         <PortfolioImage
@@ -125,7 +113,6 @@ const ItemCupBottomless = () => {
             Photo gallery of stylish coffee makers
           </Text>
         </Stack>
-
         {/* LIST COMPONENT */}
         <Stack as="ul" direction="column" rowGap={3} listStyleType="none">
           <FeatureItem
@@ -186,10 +173,13 @@ const ItemCupBottomless = () => {
             </Text>
           </FeatureItem>
         </Stack>
-
         {/* ACTION AREA */}
         <Stack direction="row" spacing={3} align="center">
-          <Link href="https://coffee-machines.vercel.app/" isExternal>
+          <Link
+            href="https://coffee-machines.vercel.app/"
+            isExternal
+            _hover={{ textDecoration: "none" }}
+          >
             <Button
               rightIcon={<Icon as={RiExternalLinkLine} />}
               colorScheme="teal"
@@ -202,6 +192,7 @@ const ItemCupBottomless = () => {
           <Link
             href="https://github.com/john-zhuangzhuang-li/coffee-machines"
             isExternal
+            _hover={{ textDecoration: "none" }}
           >
             <Button
               rightIcon={<Icon as={SiGithub} />}

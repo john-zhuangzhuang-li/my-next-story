@@ -1,60 +1,35 @@
 import {
   Flex,
   Heading,
-  Text,
   Grid,
-  chakra,
-  shouldForwardProp,
   Box,
-  Container,
   Button,
   IconButton,
-  Stack,
   Icon,
-  Circle,
-  Link,
   Spacer,
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
 } from "@chakra-ui/react";
-import {
-  motion,
-  isValidMotionProp,
-  useScroll,
-  useSpring,
-  useTransform,
-} from "framer-motion";
 import { FiMenu } from "react-icons/fi";
-import { FaGlasses, FaChevronDown } from "react-icons/fa";
+import { FaGlasses } from "react-icons/fa";
 
 import ProgressBar from "./ProgressBar";
 
-const NavBar = ({ onScrollTo }) => {
-  // const handleReturnToTop = () =>
-  //   window.scrollTo({
-  //     top: 0,
-  //     left: 0,
-  //     behavior: "smooth",
-  //   });
-
+const NavBar = ({ onScrollTo, onContactModalOpen }) => {
   return (
     <Grid
       as="nav"
       pos="sticky"
       top={-6}
       gridColumn="1 / -1"
-      // bg="whiteAlpha.500"
       backdropFilter="auto"
       backdropBlur="10px"
       templateColumns="minmax(0, 1fr) [center-start] minmax(min-content, 75em) [center-end] minmax(0, 1fr)"
-      // templateColumns="[left-start] minmax(0, 1fr) [left-end logo-start] min-content [logo-end right-start] minmax(0, 1fr) [right-end]"
-      // columnGap={6}
       zIndex="100"
       pt={6}
       columnGap={6}
-      // transition="all 0.2s ease-in-out"
     >
       <ProgressBar />
       <Flex
@@ -116,11 +91,16 @@ const NavBar = ({ onScrollTo }) => {
         >
           Courses
         </Button>
+        <Button
+          // variant="ghost"
+          colorScheme="purple"
+          onClick={onContactModalOpen}
+          display={{ base: "none", md: "flex" }}
+        >
+          Contact
+        </Button>
         <Box display={{ base: "flex", md: "none" }}>
           <Menu>
-            {/* <MenuButton as={Button} rightIcon={<Icon as={FaChevronDown} />}>
-              Jump to
-            </MenuButton> */}
             <MenuButton as={IconButton} aria-label="menu" icon={<FiMenu />} />
             <MenuList>
               <MenuItem data-scroll-id="about" onClick={onScrollTo}>
@@ -135,39 +115,11 @@ const NavBar = ({ onScrollTo }) => {
               <MenuItem data-scroll-id="cert" onClick={onScrollTo}>
                 Courses
               </MenuItem>
+              <MenuItem onClick={onContactModalOpen}>Contact</MenuItem>
             </MenuList>
           </Menu>
         </Box>
       </Flex>
-
-      {/* <Flex
-        gridColumn="left"
-        gridRow="1 / span 1"
-        justifyContent="flex-end"
-        alignItems="center"
-        zIndex="200"
-      >
-        <Text noOfLines={1}>This is left</Text>
-      </Flex>
-      <Flex
-        gridColumn="logo"
-        gridRow="1 / span 1"
-        justifyContent="center"
-        alignItems="center"
-        zIndex="200"
-        py={3}
-      >
-        <Icon as={FaGlasses} w={6} h={6} color="purple.500" />
-      </Flex>
-      <Flex
-        gridColumn="right"
-        gridRow="1 / span 1"
-        justifyContent="flex-start"
-        alignItems="center"
-        zIndex="200"
-      >
-        <Text noOfLines={1}>This is right</Text>
-      </Flex> */}
     </Grid>
   );
 };

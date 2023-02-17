@@ -9,14 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@chakra-ui/react": "^2.3.6",
-    "@emotion/react": "^11.10.4",
-    "@emotion/styled": "^11.10.4",
+    "@chakra-ui/react": "^2.4.9",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
     "@fontsource/inter": "^4.5.14",
-    "framer-motion": "^7.6.1",
+    "@fontsource/roboto-mono": "^4.5.8",
+    "@sendgrid/mail": "^7.7.0",
+    "framer-motion": "^6.5.1",
     "next": "12.3.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.43.1",
     "react-icons": "^4.6.0"
   },
   "devDependencies": {

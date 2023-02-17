@@ -2,34 +2,12 @@ import {
   Flex,
   Heading,
   Text,
-  Grid,
   chakra,
   shouldForwardProp,
-  Box,
-  Container,
   Button,
   Stack,
-  Icon,
-  Circle,
-  Link,
-  textDecoration,
 } from "@chakra-ui/react";
 import { motion, isValidMotionProp } from "framer-motion";
-
-import NextImage from "next/image";
-
-import {
-  RiCodeSSlashFill,
-  RiExternalLinkLine,
-  RiGithubFill,
-  RiUser5Line,
-} from "react-icons/ri";
-import { SiGithub } from "react-icons/si";
-import { FaCoffee, FaUser, FaCode, FaChevronDown } from "react-icons/fa";
-import { BiUserCheck, BiImage, BiImageAdd } from "react-icons/bi";
-import { MdOutlineEmail } from "react-icons/md";
-import { FiArrowDown } from "react-icons/fi";
-import { TfiEmail } from "react-icons/tfi";
 
 import HeaderImg from "./HeaderImg";
 
@@ -38,19 +16,16 @@ const EmojiWrapper = chakra(motion.span, {
     isValidMotionProp(prop) || shouldForwardProp(prop),
 });
 
-const Header = ({ onScrollTo }) => {
+const Header = ({ onScrollTo, onContactModalOpen }) => {
   return (
     <Flex
       gridColumn="center"
-      // h={{ base: "auto", lg: "50vh" }}
       minH="35rem"
       justifyContent={{ base: "flex-start", lg: "center" }}
       alignItems="center"
-      // gap={{ base: 12, lg: 12 }}
-      gap={12}
+      gap={24}
       flexDir={{ base: "column-reverse", lg: "row" }}
-      // mb={12}
-      // bg="gray.700"
+      mt={{ base: 0, "2xl": 8 }}
     >
       {/* CONTENT BOX */}
       <Flex
@@ -62,9 +37,8 @@ const Header = ({ onScrollTo }) => {
         // bg="pink.300"
       >
         <Heading size="lg">
-          Hi, I'm John Li &nbsp;
+          {`Hi! I'm John Li `}
           <EmojiWrapper
-            // animate={{ scale: [0.1, 0.5, 1, 0.5, 0.1] }}
             display="inline-block"
             animate={{ rotate: [-5, 15, -5, 15, -5] }}
             transition={{
@@ -76,24 +50,17 @@ const Header = ({ onScrollTo }) => {
             }}
             transformOrigin="bottom right"
           >
-            👋
+            {`👋`}
           </EmojiWrapper>
         </Heading>
         <Heading size={{ base: "xl", sm: "2xl" }}>Front-End Developer</Heading>
         <Text fontSize={{ base: "md", sm: "xl" }}>
-          I like to make things easy and enjoyable. That applies to building
-          interfaces for web applications.
+          {`My passion is crafting visually appealing and easy-to-use web
+          interfaces. Let's work together to create something special!`}
         </Text>
         {/* ACTIONS */}
-        <Stack
-          direction="row"
-          spacing={3}
-          align="center"
-          // justify={{ base: "center", sm: "flex-start" }}
-        >
+        <Stack direction="row" spacing={3} align="center">
           <Button
-            // rightIcon={<Icon as={FaChevronDown} />}
-            // flex="1"
             colorScheme="purple"
             variant="solid"
             textTransform="uppercase"
@@ -102,23 +69,14 @@ const Header = ({ onScrollTo }) => {
           >
             learn more
           </Button>
-          <Link
-            // display="flex"
-            // flex="1"
-            href="https://github.com/john-zhuangzhuang-li/my-next-story"
-            isExternal
+          <Button
+            colorScheme="purple"
+            variant="ghost"
+            textTransform="uppercase"
+            onClick={onContactModalOpen}
           >
-            <Button
-              // rightIcon={<Icon as={TfiEmail} />}
-              // flex="1"
-              colorScheme="purple"
-              // variant="outline"
-              variant="ghost"
-              textTransform="uppercase"
-            >
-              contact me
-            </Button>
-          </Link>
+            contact me
+          </Button>
         </Stack>
       </Flex>
       <HeaderImg />

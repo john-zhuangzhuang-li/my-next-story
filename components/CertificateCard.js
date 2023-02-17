@@ -1,7 +1,6 @@
 import {
   Flex,
   Heading,
-  Grid,
   chakra,
   shouldForwardProp,
   Icon,
@@ -69,7 +68,6 @@ const CertificateCard = ({ id, title, gradient }) => {
       mx={{ base: 0, sm: 6 }}
       my={{ base: 3, sm: 6 }}
       bg="#fff"
-      // bg="gray.500"
       position="relative"
       borderRadius="2xl"
       cursor={toToggle ? "default" : "pointer"}
@@ -91,12 +89,10 @@ const CertificateCard = ({ id, title, gradient }) => {
         content: '""',
         position: "absolute",
         inset: "-1px",
-        //   filter: "blur(10px)",
         zIndex: "-1",
         opacity: displayToggled ? "0.75" : "0.4",
         bg: displayToggled ? gradient : "gray.400",
         boxShadow: "lg",
-        // bgGradient: "linear(to-l, #7928CA, #FF0080)",
         borderRadius: "2xl",
         transition: "all 0.2s",
       }}
@@ -104,9 +100,7 @@ const CertificateCard = ({ id, title, gradient }) => {
         "&:hover::before": { opacity: "0.75", transform: "scale(1)" },
         "&:hover::after": {
           opacity: "0.75",
-          // bgGradient: "linear(to-l, #7928CA, #FF0080)",
           bgGradient: gradient,
-          // bg: gradient,
         },
       }}
     >
@@ -130,7 +124,6 @@ const CertificateCard = ({ id, title, gradient }) => {
           size={{ base: "md", sm: "lg" }}
           ml={3}
           noOfLines={1}
-          // bgGradient="linear(to-l, #7928CA, #FF0080)"
           bgGradient={gradient}
           bgClip="text"
         >

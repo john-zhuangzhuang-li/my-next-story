@@ -1,4 +1,4 @@
-import { chakra, useDisclosure } from "@chakra-ui/react";
+import { chakra } from "@chakra-ui/react";
 
 import NavBar from "./NavBar";
 import Footer from "./Footer";
@@ -12,16 +12,15 @@ const Container = chakra("div", {
     gridTemplateColumns:
       "minmax(0, 1fr) [center-start] minmax(min-content, 75em) [center-end] minmax(0, 1fr)",
     gridAutoFlow: "column",
-    // bg: "gray.700",
   },
 });
 
-const Layout = ({ onScrollTo, children }) => {
+const Layout = ({ onScrollTo, onContactModalOpen, children }) => {
   return (
     <Container>
-      <NavBar onScrollTo={onScrollTo} />
+      <NavBar onScrollTo={onScrollTo} onContactModalOpen={onContactModalOpen} />
       {children}
-      <Footer />
+      <Footer onContactModalOpen={onContactModalOpen} />
     </Container>
   );
 };

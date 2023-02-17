@@ -2,11 +2,8 @@ import {
   Flex,
   Heading,
   Text,
-  Grid,
   chakra,
   shouldForwardProp,
-  Box,
-  Container,
   Button,
   Stack,
   Icon,
@@ -16,7 +13,7 @@ import {
 import { motion, isValidMotionProp } from "framer-motion";
 
 import NextImage from "next/image";
-import testImg from "../../public/port-imgs/test-02.webp";
+import testImg from "../../public/port-imgs/story-02.webp";
 
 import { RiExternalLinkLine } from "react-icons/ri";
 import { SiGithub } from "react-icons/si";
@@ -24,8 +21,6 @@ import { FaCode, FaGlasses } from "react-icons/fa";
 import { MdAnimation, MdUpdate } from "react-icons/md";
 
 // CURRENT SCR SHOT SIZE: 1800 X 1200
-
-// CONSIDER STILL INCLUDE CHIPS IN - TEXT ONLY?
 
 const PortfolioItem = chakra(motion.li, {
   shouldForwardProp: (prop) =>
@@ -86,7 +81,6 @@ const ItemMyStory = () => {
       variants={portfolio}
       viewport={{ once: true }}
       minH="30rem"
-      // bg="purple.100"
     >
       {/* IMAGE AREA */}
       <Flex
@@ -98,8 +92,6 @@ const ItemMyStory = () => {
         p={{ base: 3, md: 9 }}
         borderRadius="lg"
         overflow="hidden"
-        // transition="padding 0.2s ease-in-out"
-        // _hover={{ p: 3 }}
       >
         {/* IMAGE WRAP */}
         <PortfolioImage
@@ -121,7 +113,6 @@ const ItemMyStory = () => {
             My latest portfolio page
           </Text>
         </Stack>
-
         {/* LIST COMPONENT */}
         <Stack as="ul" direction="column" rowGap={3} listStyleType="none">
           <FeatureItem
@@ -179,10 +170,13 @@ const ItemMyStory = () => {
             </Text>
           </FeatureItem>
         </Stack>
-
         {/* ACTION AREA */}
         <Stack direction="row" spacing={3} align="center">
-          <Link href="https://treat-or-treat.web.app" isExternal>
+          <Link
+            href="https://treat-or-treat.web.app"
+            _hover={{ textDecoration: "none" }}
+            isExternal
+          >
             <Button
               rightIcon={<Icon as={RiExternalLinkLine} />}
               colorScheme="purple"
@@ -194,6 +188,7 @@ const ItemMyStory = () => {
           </Link>
           <Link
             href="https://github.com/john-zhuangzhuang-li/my-next-story"
+            _hover={{ textDecoration: "none" }}
             isExternal
           >
             <Button

@@ -1,10 +1,4 @@
-import {
-  Flex,
-  Heading,
-  Grid,
-  chakra,
-  shouldForwardProp,
-} from "@chakra-ui/react";
+import { Flex, Heading, chakra, shouldForwardProp } from "@chakra-ui/react";
 import { motion, isValidMotionProp } from "framer-motion";
 
 import CertificateCard from "./CertificateCard";
@@ -41,9 +35,6 @@ const CertificatesSection = () => {
       flexDir="column"
       alignItems="center"
       rowGap={12}
-      // bg="gray.100"
-      // my={12}
-      //   bgGradient="linear(to-r, #fff, gray.100)"
     >
       <Heading as="h3" size={{ base: "xl", sm: "xl" }}>
         Courses learned
@@ -53,7 +44,7 @@ const CertificatesSection = () => {
         initial="hidden"
         whileInView="visible"
         variants={list}
-        viewport={{ once: true }}
+        // viewport={{ once: true }}
         display="grid"
         gridTemplateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}
         gap={6}

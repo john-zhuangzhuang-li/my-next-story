@@ -1,11 +1,4 @@
-import {
-  Flex,
-  Heading,
-  Grid,
-  chakra,
-  shouldForwardProp,
-} from "@chakra-ui/react";
-import { motion, isValidMotionProp } from "framer-motion";
+import { Flex, Heading } from "@chakra-ui/react";
 
 import ItemCupBottomless from "./portfolioCards/ItemCupBottomless";
 import ItemTreat from "./portfolioCards/ItemTreat";
@@ -19,8 +12,6 @@ const PortfolioSection = () => {
       alignItems="center"
       flexDir="column"
       rowGap={{ base: 12, sm: 24 }}
-      // my={24}
-      //   bgGradient="linear(to-r, #fff, gray.100)"
     >
       <Heading as="h3" size={{ base: "xl", sm: "xl" }}>
         Practice projects

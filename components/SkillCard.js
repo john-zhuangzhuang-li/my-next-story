@@ -24,21 +24,14 @@ const SkillCard = ({ iconSrc: src, title }) => {
       justifyContent="center"
       alignItems="center"
       cursor="default"
-      // borderRadius="lg"
       borderRadius="2xl"
-      // bg="gray.700"
       position="relative"
       _before={{
         content: '""',
         position: "absolute",
         inset: "10px -5px -12px",
-        // bg: "pink.500",
-
-        // LIKELY TO USE
         bgGradient: `linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)`,
-
         transform: "scale(0.55)",
-
         borderRadius: "9xl",
         filter: "blur(18px)",
         zIndex: "-1",
@@ -50,12 +43,10 @@ const SkillCard = ({ iconSrc: src, title }) => {
         position: "absolute",
         inset: "0",
         zIndex: "-1",
-        // bg: "gray.700",
         bg: "#fff",
         border: "1px",
         borderColor: "gray.200",
         boxShadow: "base",
-        // borderRadius: "lg",
         borderRadius: "2xl",
       }}
       sx={{
