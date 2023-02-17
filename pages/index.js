@@ -11,6 +11,8 @@ import ContactModal from "../components/ContactModal";
 
 import { soApiBase, soApiUser, soApiTags } from "../store/dummy";
 
+import Head from "next/head";
+
 const Home = ({ updatedUser, updatedTags, updated }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const sectionsRef = useRef({});
@@ -32,6 +34,9 @@ const Home = ({ updatedUser, updatedTags, updated }) => {
 
   return (
     <>
+      <Head>
+        <title>John Li</title>
+      </Head>
       <Layout onScrollTo={handleScrollTo} onContactModalOpen={onOpen}>
         <Header onScrollTo={handleScrollTo} onContactModalOpen={onOpen} />
         <Box

@@ -17,6 +17,8 @@ import { FaGlasses } from "react-icons/fa";
 
 import ProgressBar from "./ProgressBar";
 
+// Logo color: #805ad5
+
 const NavBar = ({ onScrollTo, onContactModalOpen }) => {
   return (
     <Grid
