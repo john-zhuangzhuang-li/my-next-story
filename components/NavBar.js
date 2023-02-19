@@ -11,6 +11,7 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
+  Portal,
 } from "@chakra-ui/react";
 import { FiMenu } from "react-icons/fi";
 import { FaGlasses } from "react-icons/fa";
@@ -102,7 +103,111 @@ const NavBar = ({ onScrollTo, onContactModalOpen }) => {
           Contact
         </Button>
         <Box display={{ base: "flex", md: "none" }}>
-          <Menu>
+          {/* Alt version to keep menu when scroll and close when open modal */}
+          <Menu closeOnSelect={false}>
+            {({ onClose }) => {
+              const handleModalOpen = () => {
+                onContactModalOpen();
+                onClose();
+              };
+              return (
+                <>
+                  <MenuButton
+                    as={IconButton}
+                    aria-label="menu"
+                    icon={<FiMenu />}
+                  />
+                  <MenuList>
+                    <MenuItem data-scroll-id="about" onClick={onScrollTo}>
+                      About
+                    </MenuItem>
+                    <MenuItem data-scroll-id="skills" onClick={onScrollTo}>
+                      Skills
+                    </MenuItem>
+                    <MenuItem data-scroll-id="port" onClick={onScrollTo}>
+                      Projects
+                    </MenuItem>
+                    <MenuItem data-scroll-id="cert" onClick={onScrollTo}>
+                      Courses
+                    </MenuItem>
+                    <MenuItem onClick={handleModalOpen}>Contact</MenuItem>
+                  </MenuList>
+                </>
+              );
+            }}
+          </Menu>
+
+          {/* Alt version to separate scroll and close events */}
+          {/* <Menu closeOnSelect={false}>
+            {({ onClose }) => {
+              const handleClick = (handler) => (e) => {
+                onClose();
+                handler(e);
+              };
+              return (
+                <>
+                  <MenuButton
+                    as={IconButton}
+                    aria-label="menu"
+                    icon={<FiMenu />}
+                  />
+                  <MenuList>
+                    <MenuItem
+                      data-scroll-id="about"
+                      onClick={handleClick(onScrollTo)}
+                    >
+                      About
+                    </MenuItem>
+                    <MenuItem
+                      data-scroll-id="skills"
+                      onClick={handleClick(onScrollTo)}
+                    >
+                      Skills
+                    </MenuItem>
+                    <MenuItem
+                      data-scroll-id="port"
+                      onClick={handleClick(onScrollTo)}
+                    >
+                      Projects
+                    </MenuItem>
+                    <MenuItem
+                      data-scroll-id="cert"
+                      onClick={handleClick(onScrollTo)}
+                    >
+                      Courses
+                    </MenuItem>
+                    <MenuItem onClick={handleClick(onContactModalOpen)}>
+                      Contact
+                    </MenuItem>
+                  </MenuList>
+                </>
+              );
+            }}
+          </Menu> */}
+
+          {/* Alt version to render in portal */}
+          {/* <Menu>
+            <MenuButton as={IconButton} aria-label="menu" icon={<FiMenu />} />
+            <Portal>
+              <MenuList>
+                <MenuItem data-scroll-id="about" onClick={onScrollTo}>
+                  About
+                </MenuItem>
+                <MenuItem data-scroll-id="skills" onClick={onScrollTo}>
+                  Skills
+                </MenuItem>
+                <MenuItem data-scroll-id="port" onClick={onScrollTo}>
+                  Projects
+                </MenuItem>
+                <MenuItem data-scroll-id="cert" onClick={onScrollTo}>
+                  Courses
+                </MenuItem>
+                <MenuItem onClick={onContactModalOpen}>Contact</MenuItem>
+              </MenuList>
+            </Portal>
+          </Menu> */}
+
+          {/* <Menu closeOnSelect={false}>
             <MenuButton as={IconButton} aria-label="menu" icon={<FiMenu />} />
             <MenuList>
               <MenuItem data-scroll-id="about" onClick={onScrollTo}>
@@ -119,7 +224,7 @@ const NavBar = ({ onScrollTo, onContactModalOpen }) => {
               </MenuItem>
               <MenuItem onClick={onContactModalOpen}>Contact</MenuItem>
             </MenuList>
-          </Menu>
+          </Menu> */}
         </Box>
       </Flex>
     </Grid>
