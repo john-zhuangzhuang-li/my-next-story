@@ -93,7 +93,7 @@ const HeaderImgAlt = () => {
         overflow="hidden"
         // transform="translateX(-10px) translateY(-10px)"
       >
-        <NextImage src={altImage} alt="Header image alt" />
+        <NextImage src={altImage} alt="Header image alt" placeholder="blur" />
       </Flex>
     </Grid>
   );

@@ -53,6 +53,7 @@ const AboutSectionAlt = ({ updatedUser, updatedTags, updated }) => {
           flexDirection={{ base: "column", lg: "row" }}
           columnGap={16}
           rowGap={12}
+          mb={3}
         >
           <Stack spacing={6} flex="1">
             <Text fontSize={{ base: "md", sm: "xl" }} textStyle="content">

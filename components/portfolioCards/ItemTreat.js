@@ -99,7 +99,7 @@ const ItemTreat = () => {
           variants={image}
           overflow="hidden"
         >
-          <NextImage src={testImg} alt="Portfolio image" />
+          <NextImage src={testImg} alt="Portfolio image" placeholder="blur" />
         </PortfolioImage>
       </Flex>
       {/* TITLE AREA */}

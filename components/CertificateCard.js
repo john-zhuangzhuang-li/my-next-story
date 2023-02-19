@@ -131,7 +131,11 @@ const CertificateCard = ({ id, title, gradient }) => {
         </Heading>
       </CertTitle>
       {/* </Flex> */}
-      <NextImage src={certImgList[id]} alt="Certificate image" />
+      <NextImage
+        src={certImgList[id]}
+        alt="Certificate image"
+        placeholder="blur"
+      />
     </Flex>
   );
 };

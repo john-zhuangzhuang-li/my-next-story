@@ -1,10 +1,8 @@
+// import { useState } from "react";
 import { Flex, chakra, shouldForwardProp, Box } from "@chakra-ui/react";
 import { motion, isValidMotionProp } from "framer-motion";
-
 import NextImage from "next/image";
-
 import mainImage from "../public/header-imgs/header-01-T01-CW.webp";
-
 import useDisplayToggle from "../util/useDisplayToggle";
 
 const FigureBox = chakra(motion.div, {
@@ -50,9 +48,19 @@ const image = {
   hidden: { scale: 1.2, y: "17.5rem" },
 };
 
+// const imageLoading = {
+//   visible: { scale: 1.2, y: "17.5rem" },
+//   hidden: { scale: 1.2, y: "17.5rem" },
+// };
+
 const HeaderImg = () => {
   const { toToggle, displayToggled, handleToToggle, handleToggleOnLeave } =
     useDisplayToggle();
+  // const [loaded, setLoaded] = useState(false);
+  // const handleLoaded = () => {
+  //   console.log("image loaded");
+  //   setLoaded(true);
+  // };
 
   return (
     <Flex
@@ -64,6 +72,7 @@ const HeaderImg = () => {
         display="flex"
         initial="hidden"
         whileInView="visible"
+        // whileInView={loaded ? "visible" : "hidden"}
         variants={background}
         w={{ base: "12rem", lg: "15rem" }}
         h={{ base: "16rem", lg: "17.5rem" }}
@@ -94,8 +103,18 @@ const HeaderImg = () => {
           h={{ base: "12rem", lg: "15rem" }}
           bgGradient={`linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)`}
         ></Box>
-        <ImgWrapper display="flex" variants={image}>
-          <NextImage src={mainImage} alt="Header image" />
+        <ImgWrapper
+          display="flex"
+          variants={image}
+          // variants={loaded ? image : imageLoading}
+        >
+          <NextImage
+            src={mainImage}
+            alt="Header image"
+            priority
+            // loading="eager"
+            // onLoadingComplete={handleLoaded}
+          />
         </ImgWrapper>
       </FigureBox>
     </Flex>
