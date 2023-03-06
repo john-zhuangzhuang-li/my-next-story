@@ -91,14 +91,14 @@ const SOCardAlt = ({ updatedUser, updatedTags, updated }) => {
               <Divider orientation="vertical" />
               <Stack spacing="0" justify="center" align="center" flex="1">
                 <Text color="purple.600" fontSize="2xl">
-                  286
+                  294
                 </Text>
                 <Text fontSize="xs">Answers</Text>
               </Stack>
               <Divider orientation="vertical" />
               <Stack spacing="0" justify="center" align="center" flex="1">
                 <Text color="purple.600" fontSize="2xl">
-                  {`~16k`}
+                  {`~20k`}
                 </Text>
                 <Text fontSize="xs">Reached</Text>
               </Stack>
